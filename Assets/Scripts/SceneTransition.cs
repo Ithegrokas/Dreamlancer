@@ -11,11 +11,9 @@ public class SceneTransition : MonoBehaviour
      
     void FixedUpdate()
     {
-     
         // Will contain the information of which object the raycast hit
         RaycastHit hit;
-     
-     
+        
         // Sends out a Raycast, if it hits something, is that something Tagged as a "Door" in the Editor
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) && hit.collider.gameObject.CompareTag("Door"))
         {
