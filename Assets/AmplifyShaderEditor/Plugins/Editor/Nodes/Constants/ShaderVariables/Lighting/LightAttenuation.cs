@@ -51,12 +51,6 @@ namespace AmplifyShaderEditor
 			{
 				if( !dataCollector.IsSRP )
 				{
-					string result = string.Empty;
-					if( dataCollector.TemplateDataCollectorInstance.ContainsSpecialLocalFragVar( TemplateInfoOnSematics.SHADOWCOORDS, WirePortDataType.FLOAT4, ref result ) )
-					{
-						return result;
-					}
-
 					return dataCollector.TemplateDataCollectorInstance.GetLightAtten( UniqueId );
 				}
 				else

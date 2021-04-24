@@ -715,19 +715,7 @@ namespace AmplifyShaderEditor
 			fileContents.Append( "}\n" );
 			string filePath = AssetDatabase.GUIDToAssetPath( TemplateMenuItemsFileGUID );
 			IOUtils.SaveTextfileToDisk( fileContents.ToString(), filePath, false );
-			m_filepath = filePath;
-			//AssetDatabase.ImportAsset( filePath );
-		}
-
-		string m_filepath = string.Empty;
-
-		public void ReimportMenuItems()
-		{
-			if( !string.IsNullOrEmpty( m_filepath ) )
-			{
-				AssetDatabase.ImportAsset( m_filepath );
-				m_filepath = string.Empty;
-			}
+			AssetDatabase.ImportAsset( filePath );
 		}
 
 		public int GetIdForTemplate( TemplateData templateData )

@@ -40,9 +40,7 @@ namespace AmplifyShaderEditor
 															WirePortDataType.SAMPLER1D,
 															WirePortDataType.SAMPLER2D,
 															WirePortDataType.SAMPLER3D,
-															WirePortDataType.SAMPLERCUBE,
-															WirePortDataType.SAMPLER2DARRAY,
-															WirePortDataType.SAMPLERSTATE );
+															WirePortDataType.SAMPLERCUBE );
 			}
 			UpdateConnection( 0 );
 			m_useInternalPortData = true;

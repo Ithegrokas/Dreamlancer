@@ -2,7 +2,6 @@
 // Copyright (c) Amplify Creations, Lda <info@amplify.pt>
 
 using System;
-using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEditor;
@@ -46,8 +45,7 @@ namespace AmplifyShaderEditor
 		SV_VertexID,
 		SV_PrimitiveID,
 		SV_InstanceID,
-		INTERNALTESSPOS,
-		INSTANCEID_SEMANTIC
+		INTERNALTESSPOS
 	}
 
 	public enum TemplateInfoOnSematics
@@ -109,7 +107,6 @@ namespace AmplifyShaderEditor
 	{
 		RenderType,
 		Queue,
-		DisableBatching,
 		None
 	}
 
@@ -442,7 +439,6 @@ namespace AmplifyShaderEditor
 		{
 			base.SetAllModulesDefault();
 			ColorMaskId = string.Empty;
-			Target = string.Empty;
 			for( int i = 0; i < ColorMaskData.Length; i++ )
 			{
 				ColorMaskData[ i ] = true;
@@ -492,17 +488,6 @@ namespace AmplifyShaderEditor
 		{
 			{ TemplateSpecialTags.RenderType.ToString(), TemplateSpecialTags.RenderType},
 			{ TemplateSpecialTags.Queue.ToString(), TemplateSpecialTags.Queue},
-			{ TemplateSpecialTags.DisableBatching.ToString(), TemplateSpecialTags.DisableBatching},
-		};
-
-		public static readonly Dictionary<string, DisableBatching> StringToDisableBatching = new Dictionary<string, DisableBatching>
-		{
-			{"true",DisableBatching.True},
-			{"True",DisableBatching.True},
-			{"false",DisableBatching.False},
-			{"False",DisableBatching.False},
-			{"LOD Fading",DisableBatching.LODFading},
-			{"LODFading",DisableBatching.LODFading}
 		};
 
 		public static readonly Dictionary<string, RenderType> StringToRenderType = new Dictionary<string, RenderType>
@@ -537,8 +522,7 @@ namespace AmplifyShaderEditor
 			{"Vector",WirePortDataType.FLOAT4},
 			{"2D",WirePortDataType.SAMPLER2D},
 			{"3D",WirePortDataType.SAMPLER3D},
-			{"Cube",WirePortDataType.SAMPLERCUBE},
-			{"2DArray",WirePortDataType.SAMPLER2DARRAY},
+			{"Cube",WirePortDataType.SAMPLERCUBE}
 		};
 
 		public static readonly Dictionary<WirePortDataType, int> DataTypeChannelUsage = new Dictionary<WirePortDataType, int>
@@ -556,9 +540,7 @@ namespace AmplifyShaderEditor
 			{WirePortDataType.SAMPLER1D,0 },
 			{WirePortDataType.SAMPLER2D,0 },
 			{WirePortDataType.SAMPLER3D,0 },
-			{WirePortDataType.SAMPLERCUBE,0 },
-			{WirePortDataType.SAMPLER2DARRAY,0 },
-			{WirePortDataType.SAMPLERSTATE,0 }
+			{WirePortDataType.SAMPLERCUBE,0 }
 		};
 
 		public static readonly Dictionary<int, WirePortDataType> ChannelToDataType = new Dictionary<int, WirePortDataType>
@@ -835,14 +817,12 @@ namespace AmplifyShaderEditor
 			{"fixed3x3"         ,WirePortDataType.FLOAT3x3},
 			{"fixed4x4"         ,WirePortDataType.FLOAT4x4},
 			{"int"              ,WirePortDataType.INT},
-			{"uint"             ,WirePortDataType.INT},
+			{"uint"              ,WirePortDataType.INT},
 			{"sampler1D"        ,WirePortDataType.SAMPLER1D},
 			{"sampler2D"        ,WirePortDataType.SAMPLER2D},
 			{"sampler2D_float"  ,WirePortDataType.SAMPLER2D},
 			{"sampler3D"        ,WirePortDataType.SAMPLER3D},
-			{"samplerCUBE"      ,WirePortDataType.SAMPLERCUBE},
-			{"sampler2DArray"   ,WirePortDataType.SAMPLER2DARRAY},
-			{"SamplerState"     ,WirePortDataType.SAMPLERSTATE}
+			{"samplerCUBE"      ,WirePortDataType.SAMPLERCUBE}
 		};
 
 		public static readonly Dictionary<string, int> AvailableInterpolators = new Dictionary<string, int>()
@@ -931,7 +911,7 @@ namespace AmplifyShaderEditor
 		public static readonly string ZWritePattern = @"^\s*ZWrite\s+(\[*\w+\]*)";
 		//public static readonly string ZOffsetPattern = @"\s*Offset\s+([-+]?[0-9]*\.?[0-9]+)\s*,\s*([-+]?[0-9]*\.?[0-9]+)";
 		public static readonly string ZOffsetPattern = @"^\s*Offset\s+([-+]?[0-9]*\.?[0-9]+|\[*\w+\]*)\s*,\s*([-+]?[0-9]*\.?[0-9]+|\[*\w+\]*)\s*";
-		public static readonly string VertexDataPattern = @"([a-z0-9D_]+|samplerCUBE|sampler2DArray)\s+(\w+)\s*:\s*([A-Z0-9_]+);";
+		public static readonly string VertexDataPattern = @"([a-z0-9D_]+|samplerCUBE)\s+(\w+)\s*:\s*([A-Z0-9_]+);";
 		public static readonly string InterpRangePattern = @"ase_interp\((\d\.{0,1}\w{0,4}),(\d*)\)";
 		//public static readonly string PropertiesPatternB = "(\\w*)\\s*\\(\\s*\"([\\w ]*)\"\\s*\\,\\s*(\\w*)\\s*.*\\)";
 		//public static readonly string PropertiesPatternC = "^\\s*(\\w*)\\s*\\(\\s*\"([\\w\\(\\)\\+\\-\\\\* ]*)\"\\s*\\,\\s*(\\w*)\\s*.*\\)";
@@ -967,7 +947,7 @@ namespace AmplifyShaderEditor
 		public static readonly string StencilOpGlobalPattern = @"Stencil\s*{([\w\W\s]*)}";
 		public static readonly string StencilOpLinePattern = @"(\w+)\s*(\[*\w+\]*)";
 
-		public static readonly string ShaderGlobalsOverallPattern = @"(?:\/\*ase_pragma\*\/|[\}\#])[\#\&\|\!\<\>\(\)\=\w\s\;\/\*\.\\""]*\/\*ase_globals\*\/";
+		public static readonly string ShaderGlobalsOverallPattern = "(?:\\/\\*ase_pragma\\*\\/|[\\}\\#])[\\w\\s\\;\\/\\*\\.\\\"]*\\/\\*ase_globals\\*\\/";
 		public static readonly string ShaderGlobalsMultilinePattern = @"^\s*(?:uniform\s*)*(\w*)\s*(\w*);$";
 
 		public static readonly string TexSemantic = "float4 {0} : TEXCOORD{1};";
@@ -982,7 +962,7 @@ namespace AmplifyShaderEditor
 		public static readonly string TemplateVarFormat = "{0}.{1}";
 
 		//public static readonly string StructsRemoval = @"struct\s+\w+\s+{[\s\w;\/\*]+};";
-		public static readonly string StructsRemoval = @"struct\s+\w+\s+{[\#\&\|\!\<\>\s\w\(\).;:=,\/\*]+};";
+		public static readonly string StructsRemoval = @"struct\s+\w+\s+{[\s\w\(\).;:=,\/\*]+};";
 
 		public static readonly string SRPBatcherFindTag = @"CBUFFER_START\s*\(\s*UnityPerMaterial\s*\)\s*\n(\s*)";
 
@@ -1100,7 +1080,7 @@ namespace AmplifyShaderEditor
 			}
 		}
 
-		public static void CreateShaderPropertiesList( string propertyData, ref List<TemplateShaderPropertyData> propertiesList, ref Dictionary<string, TemplateShaderPropertyData> duplicatesHelper, int subShaderId, int passId)
+		public static void CreateShaderPropertiesList( string propertyData, ref List<TemplateShaderPropertyData> propertiesList, ref Dictionary<string, TemplateShaderPropertyData> duplicatesHelper )
 		{
 			int identationIdx = (int)TemplateShaderPropertiesIdx.Identation;
 			int nameIdx = (int)TemplateShaderPropertiesIdx.Name;
@@ -1119,37 +1099,15 @@ namespace AmplifyShaderEditor
 																								match.Groups[ inspectorNameIdx ].Value,
 																								match.Groups[ nameIdx ].Value,
 																								PropertyToWireType[ match.Groups[ typeIdx ].Value ],
-																								PropertyType.Property,
-																								subShaderId,
-																								passId);
+																								PropertyType.Property );
 						propertiesList.Add( newData );
 						duplicatesHelper.Add( newData.PropertyName, newData );
 					}	
 				}
 			}
 		}
-		public const string DepthMacroDeclRegex = @"UNITY_DECLARE_DEPTH_TEXTURE\(\s*_CameraDepthTexture";
-		public static void CheckUnityBuiltinGlobalMacros( string propertyData, ref List<TemplateShaderPropertyData> propertiesList, ref Dictionary<string, TemplateShaderPropertyData> duplicatesHelper, int subShaderId, int passId )
-		{
-			Match match = Regex.Match( propertyData, DepthMacroDeclRegex );
-			if( match.Success )
-			{
-				TemplateShaderPropertyData newData = new TemplateShaderPropertyData( -1,
-																							string.Empty,
-																							string.Empty,
-																							string.Empty,
-																							Constants.CameraDepthTextureValue,
-																							WirePortDataType.SAMPLER2D,
-																							PropertyType.Global,
-																							subShaderId,
-																							passId,
-																							true );
-				duplicatesHelper.Add( newData.PropertyName, newData );
-				propertiesList.Add( newData );
-			}
-		}
 
-		public static void CreateShaderGlobalsList( string propertyData, ref List<TemplateShaderPropertyData> propertiesList, ref Dictionary<string, TemplateShaderPropertyData> duplicatesHelper,int subShaderId, int passId )
+		public static void CreateShaderGlobalsList( string propertyData, ref List<TemplateShaderPropertyData> propertiesList, ref Dictionary<string, TemplateShaderPropertyData> duplicatesHelper )
 		{
 			int typeIdx = (int)TemplateShaderGlobalsIdx.Type;
 			int nameIdx = (int)TemplateShaderGlobalsIdx.Name;
@@ -1170,9 +1128,7 @@ namespace AmplifyShaderEditor
 																								string.Empty,
 																								lineMatch.Groups[ nameIdx ].Value,
 																								CgToWirePortType[ lineMatch.Groups[ typeIdx ].Value ],
-																								PropertyType.Global,
-																								subShaderId,
-																								passId);
+																								PropertyType.Global );
 						duplicatesHelper.Add( newData.PropertyName, newData );
 						propertiesList.Add( newData );
 					}
@@ -1903,15 +1859,7 @@ namespace AmplifyShaderEditor
 
 					WirePortDataType dataType = CgToWirePortType[ match.Groups[ 1 ].Value ];
 					string varName = match.Groups[ 2 ].Value;
-					TemplateSemantics semantics = TemplateSemantics.NONE;
-					try
-					{
-						semantics = (TemplateSemantics)Enum.Parse( typeof( TemplateSemantics ), match.Groups[ 3 ].Value );
-					}
-					catch(Exception e) 
-					{
-						Debug.LogException( e );
-					}
+					TemplateSemantics semantics = (TemplateSemantics)Enum.Parse( typeof( TemplateSemantics ), match.Groups[ 3 ].Value );
 					TemplateVertexData templateVertexData = new TemplateVertexData( semantics, dataType, varName );
 					vertexDataList.Add( templateVertexData );
 					vertexDataDict.Add( semantics, templateVertexData );
@@ -2029,16 +1977,7 @@ namespace AmplifyShaderEditor
 					{
 						WirePortDataType dataType = CgToWirePortType[ match.Groups[ 1 ].Value ];
 						string varName = match.Groups[ 2 ].Value;
-						TemplateSemantics semantics = TemplateSemantics.NONE;
-						try
-						{
-							semantics = (TemplateSemantics)Enum.Parse( typeof( TemplateSemantics ), match.Groups[ 3 ].Value );
-						}
-						catch( Exception e )
-						{
-							Debug.LogException( e );
-						}
-
+						TemplateSemantics semantics = (TemplateSemantics)Enum.Parse( typeof( TemplateSemantics ), match.Groups[ 3 ].Value );
 						TemplateVertexData templateVertexData = new TemplateVertexData( semantics, dataType, varName );
 						//interpDataList.Add( templateVertexData );
 						interpDataDict.Add( semantics, templateVertexData );
@@ -2263,9 +2202,11 @@ namespace AmplifyShaderEditor
 
 		public static bool CheckIfTemplate( string assetPath )
 		{
-			if( assetPath.EndsWith( ".shader" ) )
+			Type type = AssetDatabase.GetMainAssetTypeAtPath( assetPath );
+			if( type == typeof( Shader ) )
 			{
-				if( File.Exists( assetPath ) )
+				Shader shader = AssetDatabase.LoadAssetAtPath<Shader>( assetPath );
+				if( shader != null )
 				{
 					string body = IOUtils.LoadTextFileFromDisk( assetPath );
 					return ( body.IndexOf( TemplatesManager.TemplateShaderNameBeginTag ) > -1 );
@@ -2286,75 +2227,57 @@ namespace AmplifyShaderEditor
 				case WirePortDataType.FLOAT4:
 				case WirePortDataType.COLOR:
 				case WirePortDataType.INT:
-				{
-					switch( second )
 					{
-						case WirePortDataType.FLOAT3x3:
-						case WirePortDataType.FLOAT4x4:
-						case WirePortDataType.SAMPLER1D:
-						case WirePortDataType.SAMPLER2D:
-						case WirePortDataType.SAMPLER3D:
-						case WirePortDataType.SAMPLERCUBE:
-						case WirePortDataType.SAMPLER2DARRAY:
-						case WirePortDataType.SAMPLERSTATE:
-						return false;
+						switch( second )
+						{
+							case WirePortDataType.FLOAT3x3:
+							case WirePortDataType.FLOAT4x4:
+							case WirePortDataType.SAMPLER1D:
+							case WirePortDataType.SAMPLER2D:
+							case WirePortDataType.SAMPLER3D:
+							case WirePortDataType.SAMPLERCUBE:
+							return false;
+						}
 					}
-				}
-				break;
+					break;
 				case WirePortDataType.FLOAT3x3:
 				case WirePortDataType.FLOAT4x4:
-				{
-					switch( second )
 					{
-						case WirePortDataType.FLOAT:
-						case WirePortDataType.FLOAT2:
-						case WirePortDataType.FLOAT3:
-						case WirePortDataType.FLOAT4:
-						case WirePortDataType.COLOR:
-						case WirePortDataType.INT:
-						case WirePortDataType.SAMPLER1D:
-						case WirePortDataType.SAMPLER2D:
-						case WirePortDataType.SAMPLER3D:
-						case WirePortDataType.SAMPLERCUBE:
-						case WirePortDataType.SAMPLER2DARRAY:
-						case WirePortDataType.SAMPLERSTATE:
-						return false;
+						switch( second )
+						{
+							case WirePortDataType.FLOAT:
+							case WirePortDataType.FLOAT2:
+							case WirePortDataType.FLOAT3:
+							case WirePortDataType.FLOAT4:
+							case WirePortDataType.COLOR:
+							case WirePortDataType.INT:
+							case WirePortDataType.SAMPLER1D:
+							case WirePortDataType.SAMPLER2D:
+							case WirePortDataType.SAMPLER3D:
+							case WirePortDataType.SAMPLERCUBE:
+							return false;
+						}
 					}
-				}
-				break;
+					break;
 				case WirePortDataType.SAMPLER1D:
 				case WirePortDataType.SAMPLER2D:
 				case WirePortDataType.SAMPLER3D:
 				case WirePortDataType.SAMPLERCUBE:
-				case WirePortDataType.SAMPLER2DARRAY:
-				{
-					switch( second )
 					{
-						case WirePortDataType.FLOAT:
-						case WirePortDataType.FLOAT2:
-						case WirePortDataType.FLOAT3:
-						case WirePortDataType.FLOAT4:
-						case WirePortDataType.FLOAT3x3:
-						case WirePortDataType.FLOAT4x4:
-						case WirePortDataType.COLOR:
-						case WirePortDataType.INT:
-						case WirePortDataType.SAMPLERSTATE:
-						return false;
+						switch( second )
+						{
+							case WirePortDataType.FLOAT:
+							case WirePortDataType.FLOAT2:
+							case WirePortDataType.FLOAT3:
+							case WirePortDataType.FLOAT4:
+							case WirePortDataType.FLOAT3x3:
+							case WirePortDataType.FLOAT4x4:
+							case WirePortDataType.COLOR:
+							case WirePortDataType.INT:
+							return false;
+						}
 					}
-				}
-				break;
-				case WirePortDataType.SAMPLERSTATE:
-				{
-					switch( second )
-					{
-						default:
-						return false;
-						case WirePortDataType.SAMPLERSTATE:
-						case WirePortDataType.OBJECT:
-						break;
-					}
-				}
-				break;
+					break;
 			}
 			return true;
 		}

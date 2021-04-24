@@ -332,21 +332,17 @@ namespace AmplifyShaderEditor
 			}
 		}
 
-		public void SetMacros( ref MasterNodeDataCollector dataCollector )
+		public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalVar )
 		{
 #if UNITY_5_6_OR_NEWER
 			if( !dataCollector.IsTemplate || dataCollector.CurrentSRPType == TemplateSRPType.BuiltIn )
 			{
 				for( int i = 0; i < ASEDeclareMacro.Length; i++ )
 				{
-					dataCollector.AddToDirectives( ASEDeclareMacro[ i ] );
+					dataCollector.AddToDirectives( ASEDeclareMacro[ i ]);
 				}
 			}
 #endif
-		}
-		public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalVar )
-		{
-			SetMacros( ref dataCollector );
 
 #if !UNITY_2018_3_OR_NEWER
 			if( dataCollector.IsTemplate && dataCollector.CurrentSRPType == TemplateSRPType.HD )
@@ -355,7 +351,7 @@ namespace AmplifyShaderEditor
 				return GetOutputColorItem( 0, outputId, "(0).xxxx" );
 			}
 #endif
-			if( m_outputPorts[ 0 ].IsLocalValue( dataCollector.PortCategory ) )
+				if( m_outputPorts[ 0 ].IsLocalValue( dataCollector.PortCategory ) )
 				return GetOutputColorItem( 0, outputId, m_outputPorts[ 0 ].LocalValue( dataCollector.PortCategory ) );
 
 			string valueName = string.Empty;
@@ -670,9 +666,8 @@ namespace AmplifyShaderEditor
 
 		public override void CheckIfAutoRegister( ref MasterNodeDataCollector dataCollector )
 		{
-			if( m_autoRegister && (m_connStatus != NodeConnectionStatus.Connected  || InsideShaderFunction ))
+			if( m_autoRegister && m_connStatus != NodeConnectionStatus.Connected )
 			{
-				SetMacros( ref dataCollector );
 				RegisterProperty( ref dataCollector );
 				string propertyName = CurrentPropertyReference;
 				bool emptyName = string.IsNullOrEmpty( m_propertyInspectorName ) || propertyName == GrabTextureDefault;

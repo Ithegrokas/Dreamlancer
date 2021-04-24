@@ -253,7 +253,6 @@ namespace AmplifyShaderEditor
 		public static GUIStyle MiniButtonTopRight;
 
 		public static GUIStyle CommentaryTitle;
-		public static GUIStyle StickyNoteText;
 		public static GUIStyle InputPortLabel;
 		public static GUIStyle OutputPortLabel;
 
@@ -537,7 +536,7 @@ namespace AmplifyShaderEditor
 			{TextureType.Texture2D,			"sampler2D" },
 			{TextureType.Texture3D,			"sampler3D" },
 			{TextureType.Cube ,				"samplerCUBE"},
-			{TextureType.Texture2DArray,	"sampler2DArray" },
+			{TextureType.Texture2DArray,	"sampler2D" },
 			{TextureType.ProceduralTexture,	"sampler2D" }
 		};
 
@@ -588,8 +587,7 @@ namespace AmplifyShaderEditor
 		private static Color[] m_dataTypeToColorMonoMode = { new Color( 0.5f, 0.5f, 0.5f, 1.0f ), Color.white };
 		private static Dictionary<WirePortDataType, Color> m_dataTypeToColor = new Dictionary<WirePortDataType, Color>( new WirePortDataTypeComparer() )
 		{
-			{ WirePortDataType.OBJECT,		Color.white},
-			{ WirePortDataType.SAMPLERSTATE,Color.white},
+			{  WirePortDataType.OBJECT,		Color.white},
 			{ WirePortDataType.FLOAT,		Color.gray},
 			{ WirePortDataType.FLOAT2,		new Color(1f,1f,0f,1f)},
 			{ WirePortDataType.FLOAT3,		new Color(0.5f,0.5f,1f,1f)},
@@ -601,8 +599,7 @@ namespace AmplifyShaderEditor
 			{ WirePortDataType.SAMPLER1D,	new Color(1f,0.5f,0f,1f)},
 			{ WirePortDataType.SAMPLER2D,	new Color(1f,0.5f,0f,1f)},
 			{ WirePortDataType.SAMPLER3D,	new Color(1f,0.5f,0f,1f)},
-			{ WirePortDataType.SAMPLERCUBE,	new Color(1f,0.5f,0f,1f)},
-			{ WirePortDataType.SAMPLER2DARRAY, new Color(1f,0.5f,0f,1f)}
+			{ WirePortDataType.SAMPLERCUBE,	new Color(1f,0.5f,0f,1f)}
 		};
 
 		private static Dictionary<WirePortDataType, string> m_dataTypeToName = new Dictionary<WirePortDataType, string>()
@@ -619,9 +616,7 @@ namespace AmplifyShaderEditor
 			{ WirePortDataType.SAMPLER1D,	"Sampler1D"},
 			{ WirePortDataType.SAMPLER2D,	"Sampler2D"},
 			{ WirePortDataType.SAMPLER3D,	"Sampler3D"},
-			{ WirePortDataType.SAMPLERCUBE,	"SamplerCUBE"},
-			{ WirePortDataType.SAMPLER2DARRAY, "Sampler2DArray"},
-			{ WirePortDataType.SAMPLERSTATE,"Sampler State"},
+			{ WirePortDataType.SAMPLERCUBE,	"SamplerCUBE"}
 		};
 
 		private static Dictionary<SurfaceInputs, string> m_inputTypeDeclaration = new Dictionary<SurfaceInputs, string>()
@@ -680,45 +675,7 @@ namespace AmplifyShaderEditor
 			{WirePortDataType.SAMPLER1D,    "sampler1D"},
 			{WirePortDataType.SAMPLER2D,    "sampler2D"},
 			{WirePortDataType.SAMPLER3D,    "sampler3D"},
-			{WirePortDataType.SAMPLERCUBE,  "samplerCUBE"},
-			{WirePortDataType.SAMPLER2DARRAY,    "sampler2DArray"},
-			{WirePortDataType.SAMPLERSTATE, "SamplerState"}
-		};
-
-		private static Dictionary<WirePortDataType, string> m_precisionWirePortToStandardMacroType = new Dictionary<WirePortDataType, string>()
-		{
-			{WirePortDataType.FLOAT,       "{0}"},
-			{WirePortDataType.FLOAT2,       "{0}2"},
-			{WirePortDataType.FLOAT3,       "{0}3"},
-			{WirePortDataType.FLOAT4,       "{0}4"},
-			{WirePortDataType.FLOAT3x3,     "{0}3x3"},
-			{WirePortDataType.FLOAT4x4,     "{0}4x4"},
-			{WirePortDataType.COLOR,        "{0}4"},
-			{WirePortDataType.INT,          "int"},
-			{WirePortDataType.SAMPLER1D,    "sampler1D"},
-			{WirePortDataType.SAMPLER2D,    "UNITY_DECLARE_TEX2D_NOSAMPLER("},
-			{WirePortDataType.SAMPLER3D,    "UNITY_DECLARE_TEX3D_NOSAMPLER("},
-			{WirePortDataType.SAMPLERCUBE,  "UNITY_DECLARE_TEXCUBE_NOSAMPLER("},
-			{WirePortDataType.SAMPLER2DARRAY,    "UNITY_DECLARE_TEX2DARRAY_NOSAMPLER("},
-			{WirePortDataType.SAMPLERSTATE, "SamplerState"}
-		};
-
-		private static Dictionary<WirePortDataType, string> m_precisionWirePortToSRPMacroType = new Dictionary<WirePortDataType, string>()
-		{
-			{WirePortDataType.FLOAT,       "{0}"},
-			{WirePortDataType.FLOAT2,       "{0}2"},
-			{WirePortDataType.FLOAT3,       "{0}3"},
-			{WirePortDataType.FLOAT4,       "{0}4"},
-			{WirePortDataType.FLOAT3x3,     "{0}3x3"},
-			{WirePortDataType.FLOAT4x4,     "{0}4x4"},
-			{WirePortDataType.COLOR,        "{0}4"},
-			{WirePortDataType.INT,          "int"},
-			{WirePortDataType.SAMPLER1D,    "sampler1D"},
-			{WirePortDataType.SAMPLER2D,    "TEXTURE2D("},
-			{WirePortDataType.SAMPLER3D,    "TEXTURE3D("},
-			{WirePortDataType.SAMPLERCUBE,  "TEXTURECUBE("},
-			{WirePortDataType.SAMPLER2DARRAY,    "TEXTURE2D_ARRAY("},
-			{WirePortDataType.SAMPLERSTATE, "SamplerState"}
+			{WirePortDataType.SAMPLERCUBE,  "samplerCUBE"}
 		};
 
 		private static Dictionary<WirePortDataType, string> m_wirePortToCgType = new Dictionary<WirePortDataType, string>()
@@ -735,9 +692,7 @@ namespace AmplifyShaderEditor
 			{WirePortDataType.SAMPLER2D,	"sampler2D"},
 			{WirePortDataType.SAMPLER3D,	"sampler3D"},
 			{WirePortDataType.SAMPLERCUBE,	"samplerCUBE"},
-			{WirePortDataType.SAMPLER2DARRAY,  "sampler2DArray"},
-			{WirePortDataType.UINT,			"uint"},
-			{WirePortDataType.SAMPLERSTATE, "SamplerState"}
+			{WirePortDataType.UINT,			"uint"}
 		};
 
 		private static Dictionary<KeyCode, string> m_keycodeToString = new Dictionary<KeyCode, string>()
@@ -777,22 +732,19 @@ namespace AmplifyShaderEditor
 		
 		private static Dictionary<WirePortDataType, int> m_portPriority = new Dictionary<WirePortDataType, int>()
 		{
-			{WirePortDataType.OBJECT,			0},
-			{WirePortDataType.SAMPLERSTATE,		0},
-			{WirePortDataType.SAMPLER1D,		0},
-			{WirePortDataType.SAMPLER2D,		0},
-			{WirePortDataType.SAMPLER3D,		0},
-			{WirePortDataType.SAMPLERCUBE,		0},
-			{WirePortDataType.SAMPLER2DARRAY,	0},
-			{WirePortDataType.FLOAT3x3,			1},
-			{WirePortDataType.FLOAT4x4,			2},
-			{WirePortDataType.INT,				3},
-			{WirePortDataType.UINT,				3},
-			{WirePortDataType.FLOAT,			4},
-			{WirePortDataType.FLOAT2,			5},
-			{WirePortDataType.FLOAT3,			6},
-			{WirePortDataType.FLOAT4,			7},
-			{WirePortDataType.COLOR,			7}
+			{ WirePortDataType.OBJECT,      0},
+			{WirePortDataType.SAMPLER1D,    0},
+			{WirePortDataType.SAMPLER2D,    0},
+			{WirePortDataType.SAMPLER3D,    0},
+			{WirePortDataType.SAMPLERCUBE,  0},
+			{WirePortDataType.FLOAT3x3,     1},
+			{WirePortDataType.FLOAT4x4,     2},
+			{WirePortDataType.INT,          3},
+			{WirePortDataType.FLOAT,        4},
+			{WirePortDataType.FLOAT2,       5},
+			{WirePortDataType.FLOAT3,       6},
+			{WirePortDataType.FLOAT4,       7},
+			{WirePortDataType.COLOR,        7}
 		};
 
 		private static readonly string IncorrectInputConnectionErrorMsg = "Input Port {0} from node {1} has type {2}\nwhich is incompatible with connection of type {3} from port {4} on node {5}";
@@ -858,7 +810,6 @@ namespace AmplifyShaderEditor
 			Textfield = null;
 
 			CommentaryTitle = null;
-			StickyNoteText = null;
 			InputPortLabel = null;
 			OutputPortLabel = null;
 
@@ -960,7 +911,6 @@ namespace AmplifyShaderEditor
 				InputPortLabel.fontSize = (int)( Constants.DefaultFontSize );
 				OutputPortLabel.fontSize = (int)( Constants.DefaultFontSize );
 				CommentaryTitle.fontSize = (int)( Constants.DefaultFontSize );
-				StickyNoteText.fontSize = (int)( Constants.DefaultFontSize );
 			}
 		}
 
@@ -1010,9 +960,6 @@ namespace AmplifyShaderEditor
 			}
 
 			CommentaryTitle = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.CommentaryTitle ] );
-			StickyNoteText = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.CommentaryTitle ] );
-			StickyNoteText.wordWrap = true;
-			StickyNoteText.alignment = TextAnchor.UpperLeft;
 			InputPortLabel = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.InputPortlabel ] );
 			OutputPortLabel = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.OutputPortLabel ] );
 
@@ -1196,7 +1143,6 @@ namespace AmplifyShaderEditor
 			InputPortLabel.fontSize = (int)( Constants.DefaultFontSize * drawInfo.InvertedZoom );
 			OutputPortLabel.fontSize = (int)( Constants.DefaultFontSize * drawInfo.InvertedZoom );
 			CommentaryTitle.fontSize = (int)( Constants.DefaultFontSize * drawInfo.InvertedZoom );
-			StickyNoteText.fontSize = (int)( Constants.DefaultFontSize * drawInfo.InvertedZoom );
 
 			RangedFloatSliderStyle.fixedHeight = 18 * drawInfo.InvertedZoom;
 			RangedFloatSliderThumbStyle.fixedHeight = 12 * drawInfo.InvertedZoom;
@@ -1332,61 +1278,6 @@ namespace AmplifyShaderEditor
 			return string.Format( m_precisionWirePortToCgType[ type ], m_precisionTypeToCg[ precisionType ] );
 		}
 
-		public static string PrecisionWirePortToTypeValue( PrecisionType precisionType, WirePortDataType type, string varName/*, bool isSRP, bool samplingMacro*/ )
-		{
-			string result = string.Empty;
-			string varType = string.Empty;
-			if( type == WirePortDataType.OBJECT )
-				varType = string.Empty;
-
-			if( type == WirePortDataType.INT )
-				varType = m_wirePortToCgType[ type ];
-
-			if( type == WirePortDataType.UINT )
-				varType = m_wirePortToCgType[ type ];
-
-			switch( type )
-			{
-				default:
-				case WirePortDataType.OBJECT:
-				case WirePortDataType.SAMPLERSTATE:
-				case WirePortDataType.FLOAT:
-				case WirePortDataType.FLOAT2:
-				case WirePortDataType.FLOAT3:
-				case WirePortDataType.FLOAT4:
-				case WirePortDataType.FLOAT3x3:
-				case WirePortDataType.FLOAT4x4:
-				case WirePortDataType.COLOR:
-				case WirePortDataType.UINT:
-				case WirePortDataType.INT:
-				case WirePortDataType.SAMPLER1D:
-				varType = string.Format( m_precisionWirePortToCgType[ type ], m_precisionTypeToCg[ precisionType ] );
-				result = varType + " " + varName;
-				break;
-				case WirePortDataType.SAMPLER2D:
-				case WirePortDataType.SAMPLER3D:
-				case WirePortDataType.SAMPLERCUBE:
-				case WirePortDataType.SAMPLER2DARRAY:
-				ParentGraph outsideGraph = UIUtils.CurrentWindow.OutsideGraph;
-				if( outsideGraph.SamplingMacros && !outsideGraph.IsStandardSurface )
-				{
-					if( outsideGraph.IsSRP )
-						varType = string.Format( m_precisionWirePortToSRPMacroType[ type ], m_precisionTypeToCg[ precisionType ] );
-					else
-						varType = string.Format( m_precisionWirePortToStandardMacroType[ type ], m_precisionTypeToCg[ precisionType ] );
-					result = varType + varName + ")";
-				}
-				else
-				{
-					varType = string.Format( m_precisionWirePortToCgType[ type ], m_precisionTypeToCg[ precisionType ] );
-					result = varType + " " + varName;
-				}
-				break;
-			}
-
-			return result;
-		}
-
 		public static string GetAutoSwizzle( WirePortDataType type )
 		{
 			return m_autoSwizzle[ type ];
@@ -1411,7 +1302,6 @@ namespace AmplifyShaderEditor
 			switch ( type )
 			{
 				case WirePortDataType.OBJECT:
-				case WirePortDataType.SAMPLERSTATE:
 				case WirePortDataType.FLOAT:
 				case WirePortDataType.FLOAT2:
 				case WirePortDataType.FLOAT3:
@@ -1424,7 +1314,6 @@ namespace AmplifyShaderEditor
 				case WirePortDataType.SAMPLER2D:
 				case WirePortDataType.SAMPLER3D:
 				case WirePortDataType.SAMPLERCUBE:
-				case WirePortDataType.SAMPLER2DARRAY:
 				return true;
 			}
 			return false;
@@ -1508,11 +1397,6 @@ namespace AmplifyShaderEditor
 						case WirePortDataType.INT:
 						{
 							result = ( useRealValue ) ? ( (int)value ).ToString() : "(int)" + parameterName;
-						}
-						break;
-						case WirePortDataType.UINT:
-						{
-							result = ( useRealValue ) ? ( (int)value ).ToString() : "(uint)" + parameterName;
 						}
 						break;
 					}
@@ -1772,63 +1656,17 @@ namespace AmplifyShaderEditor
 							result = ( useRealValue ) ? ( (int)value ).ToString() : "(float)" + parameterName;
 						}
 						break;
-						case WirePortDataType.UINT:
-						{
-							result = ( useRealValue ) ? ( (int)value ).ToString() : "(uint)" + parameterName;
-						}
-						break;
 					}
 				}
 				break;
-				case WirePortDataType.UINT:
-				{
-					switch( newType )
-					{
-						case WirePortDataType.OBJECT: result = useRealValue ? value.ToString() : parameterName; break;
-						case WirePortDataType.FLOAT2:
-						case WirePortDataType.FLOAT3:
-						case WirePortDataType.COLOR:
-						case WirePortDataType.FLOAT4:
-						{
-							string localVal = CreateLocalValueName( currentPrecision, newType, localVarName, ( ( useRealValue ) ? value.ToString() : parameterName ) );
-							dataCollector.AddToLocalVariables( dataCollector.PortCategory, -1, localVal );
-							result = localVarName;
-						}
-						break;
-						case WirePortDataType.FLOAT3x3:
-						{
-							string localVal = CreateLocalValueName( currentPrecision, oldType, localVarName, ( ( useRealValue ) ? value.ToString() : parameterName ) );
-							dataCollector.AddToLocalVariables( dataCollector.PortCategory, -1, localVal );
-							result = localVarName;
-						}
-						break;
-						case WirePortDataType.FLOAT4x4:
-						{
-							string localVal = CreateLocalValueName( currentPrecision, oldType, localVarName, ( ( useRealValue ) ? value.ToString() : parameterName ) );
-							dataCollector.AddToLocalVariables( dataCollector.PortCategory, -1, localVal );
-							result = localVarName;
-						}
-						break;
-						case WirePortDataType.FLOAT:
-						{
-							result = ( useRealValue ) ? ( (int)value ).ToString() : "(float)" + parameterName;
-						}
-						break;
-						case WirePortDataType.INT:
-						{
-							result = ( useRealValue ) ? ( (int)value ).ToString() : "(int)" + parameterName;
-						}
-						break;
-					}
-				}
-				break;
+
 			}
 			if( result.Equals( string.Empty ) )
 			{
 				result = "0";
 				string warningStr = string.Format( "Unable to cast from {0} to {1}. Generating dummy data ( {2} )", oldType, newType, result );
 
-				if( oldType == WirePortDataType.SAMPLER1D || oldType == WirePortDataType.SAMPLER2D || oldType == WirePortDataType.SAMPLER3D || oldType == WirePortDataType.SAMPLERCUBE || oldType == WirePortDataType.SAMPLER2DARRAY )
+				if( oldType == WirePortDataType.SAMPLER1D || oldType == WirePortDataType.SAMPLER2D || oldType == WirePortDataType.SAMPLER3D || oldType == WirePortDataType.SAMPLERCUBE )
 				{
 					warningStr = string.Format( "Unable to cast from {0} to {1}. You might want to use a Texture Sample node and connect it to the 'Tex' port. Generating dummy data ( {2} )", oldType, newType, result );
 				}
@@ -2000,15 +1838,6 @@ namespace AmplifyShaderEditor
 			for( int i = 0; i < Constants.AttrInvalidChars.Length; i++ )
 			{
 				originalString = originalString.Replace( Constants.AttrInvalidChars[ i ], string.Empty );
-			}
-			return originalString;
-		}
-
-		public static string RemoveHeaderAttrCharacters( string originalString )
-		{
-			for( int i = 0; i < Constants.AttrInvalidChars.Length; i++ )
-			{
-				originalString = originalString.Replace( Constants.HeaderInvalidChars[ i ], string.Empty );
 			}
 			return originalString;
 		}
@@ -3005,12 +2834,6 @@ namespace AmplifyShaderEditor
 			}
 
 			return 0;
-		}
-		public static string ForceLFLineEnding( string body )
-		{
-			body = body.Replace( "\r\n", "\n" );
-			body = body.Replace( "\r", "\n" );
-			return body;
 		}
 	}
 }

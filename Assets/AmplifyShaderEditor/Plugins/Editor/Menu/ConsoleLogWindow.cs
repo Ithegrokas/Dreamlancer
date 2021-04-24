@@ -115,10 +115,6 @@ namespace AmplifyShaderEditor
 							if( GUILayout.Button( ( count - i ) + ": " + messages[ i ].ItemMessage, labelStyle ) )
 							{
 								UIUtils.CurrentWindow.FocusOnNode( messages[ i ].ItemOwnerId, 1, true );
-								if( Event.current.button == 1 )
-								{
-									EditorGUIUtility.systemCopyBuffer = messages[ i ].ItemMessage;
-								}
 							}
 						}
 					}
@@ -196,10 +192,6 @@ namespace AmplifyShaderEditor
 						if( GUI.Button( rect, gc, msgstyle ))
 						{
 							UIUtils.CurrentWindow.FocusOnNode( messages[ i ].ItemOwnerId, 1, true );
-							if( Event.current.button == 1 )
-							{
-								EditorGUIUtility.systemCopyBuffer = messages[ i ].ItemMessage;
-							}
 						}
 					}
 				}

@@ -526,7 +526,6 @@ namespace AmplifyShaderEditor
 		public string RegisterUV( int UVChannel, WirePortDataType size = WirePortDataType.FLOAT2 )
 		{
 			int channelsSize = TemplateHelperFunctions.DataTypeChannelUsage[ size ];
-			WirePortDataType originalSize = size;
 			if( m_UVUsage[ UVChannel ] > channelsSize )
 			{
 				size = TemplateHelperFunctions.ChannelToDataType[ m_UVUsage[ UVChannel ] ];
@@ -569,15 +568,13 @@ namespace AmplifyShaderEditor
 					break;
 					case WirePortDataType.FLOAT4:
 					case WirePortDataType.COLOR:
-					case WirePortDataType.FLOAT3x3:
+					case WirePortDataType.OBJECT:
 					case WirePortDataType.FLOAT4x4:
 					case WirePortDataType.SAMPLER1D:
 					case WirePortDataType.SAMPLER2D:
 					case WirePortDataType.SAMPLER3D:
 					case WirePortDataType.SAMPLERCUBE:
-					case WirePortDataType.SAMPLER2DARRAY:
-					case WirePortDataType.SAMPLERSTATE:
-					case WirePortDataType.OBJECT:
+					case WirePortDataType.FLOAT3x3:
 					default:
 					break;
 				}
@@ -631,11 +628,6 @@ namespace AmplifyShaderEditor
 					m_currentDataCollector.AddToVertexInterpolatorsDecl( interpDecl );
 					string finalVarName = m_currentTemplateData.FragmentFunctionData.InVarName + "." + availableInterp.VarNameWithSwizzle;
 					m_availableFragData.Add( TemplateHelperFunctions.IntToUVChannelInfo[ UVChannel ], new InterpDataHelper( size, finalVarName ) );
-					if( size != originalSize )
-					{
-						//finalVarName = m_currentTemplateData.FragmentFunctionData.InVarName + "." + availableInterp.VarName + UIUtils.GetAutoSwizzle( originalSize );
-						finalVarName = m_availableFragData[ TemplateHelperFunctions.IntToUVChannelInfo[ UVChannel ] ].VarName  + UIUtils.GetAutoSwizzle( originalSize );
-					}
 					return finalVarName;
 				}
 			}
@@ -839,7 +831,7 @@ namespace AmplifyShaderEditor
 			return m_interpolatorData.HasRawInterpolatorOfName( name );
 		}
 
-		public TemplateVertexData RequestNewInterpolator( WirePortDataType dataType, bool isColor, string varName = null , bool noInterpolationFlag = false )
+		public TemplateVertexData RequestNewInterpolator( WirePortDataType dataType, bool isColor, string varName = null )
 		{
 			if( varName != null && m_registeredVertexData.ContainsKey( varName ) )
 			{
@@ -848,11 +840,8 @@ namespace AmplifyShaderEditor
 
 			for( int i = 0; i < m_interpolatorData.AvailableInterpolators.Count; i++ )
 			{
-				if( !m_interpolatorData.AvailableInterpolators[ i ].IsFull	)
+				if( !m_interpolatorData.AvailableInterpolators[ i ].IsFull )
 				{
-					if( m_interpolatorData.AvailableInterpolators[ i ].Usage != 0 && m_interpolatorData.AvailableInterpolators[ i ].NoInterpolation != noInterpolationFlag )
-						continue;
-
 					TemplateVertexData data = m_interpolatorData.AvailableInterpolators[ i ].RequestChannels( dataType, isColor, varName );
 					if( data != null )
 					{
@@ -863,13 +852,9 @@ namespace AmplifyShaderEditor
 
 						if( m_interpolatorData.AvailableInterpolators[ i ].Usage == 1 )
 						{
-							m_interpolatorData.AvailableInterpolators[ i ].NoInterpolation = noInterpolationFlag;
 							// First time using this interpolator, so we need to register it
 							string interpolator = string.Format( TemplateHelperFunctions.TexFullSemantic,
 																	data.VarName, data.Semantics );
-							if( noInterpolationFlag )
-								interpolator = "nointerpolation " + interpolator;
-
 							m_currentDataCollector.AddToInterpolators( interpolator );
 						}
 						return data;
@@ -938,20 +923,6 @@ namespace AmplifyShaderEditor
 			}
 
 			return resetInstrucctions;
-		}
-
-		public bool ContainsSpecialLocalFragVar( TemplateInfoOnSematics info, WirePortDataType type, ref string result )
-		{
-			if( m_specialFragmentLocalVars.ContainsKey( info ) )
-			{
-				result = m_specialFragmentLocalVars[ info ].LocalVarName;
-				if( m_specialFragmentLocalVars[ info ].DataType != type )
-				{
-					result = TemplateHelperFunctions.AutoSwizzleData( result, m_specialFragmentLocalVars[ info ].DataType, type, false );
-				}
-				return true;
-			}
-			return false;
 		}
 
 		public bool GetCustomInterpolatedData( TemplateInfoOnSematics info, WirePortDataType type, PrecisionType precisionType, ref string result, bool useMasterNodeCategory, MasterNodePortCategory customCategory )
@@ -1165,10 +1136,10 @@ namespace AmplifyShaderEditor
 			if( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
 				return varName;
 
-			string tangentValue = GetVertexTangent( WirePortDataType.FLOAT4, precisionType, false, MasterNodePortCategory.Vertex );
+			string tangentValue = GetVertexTangent( WirePortDataType.FLOAT3, precisionType, false, MasterNodePortCategory.Vertex );
 			string normalValue = GetVertexNormal( precisionType, false, MasterNodePortCategory.Vertex );
 
-			string bitangentValue = string.Format( "cross( {0}, {1}.xyz ) * {1}.w * unity_WorldTransformParams.w", normalValue, tangentValue );
+			string bitangentValue = string.Format( "cross({0},{1})", normalValue, tangentValue );
 			RegisterCustomInterpolatedData( varName, WirePortDataType.FLOAT3, precisionType, bitangentValue, useMasterNodeCategory, customCategory );
 			return varName;
 		}
@@ -1803,7 +1774,7 @@ namespace AmplifyShaderEditor
 			return varName;
 		}
 
-		public void RegisterCustomInterpolatedData( string name, WirePortDataType dataType, PrecisionType precision, string vertexInstruction, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment, bool noInterpolationFlag = false )
+		public void RegisterCustomInterpolatedData( string name, WirePortDataType dataType, PrecisionType precision, string vertexInstruction, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
 		{
 			bool addLocalVariable = !name.Equals( vertexInstruction );
 
@@ -1826,7 +1797,7 @@ namespace AmplifyShaderEditor
 				if( !m_customInterpolatedData[ name ].IsFragment )
 				{
 					m_customInterpolatedData[ name ].IsFragment = true;
-					TemplateVertexData interpData = RequestNewInterpolator( dataType, false,null, noInterpolationFlag );
+					TemplateVertexData interpData = RequestNewInterpolator( dataType, false );
 					if( interpData == null )
 					{
 						Debug.LogErrorFormat( "Could not assign interpolator of type {0} to variable {1}", dataType, name );

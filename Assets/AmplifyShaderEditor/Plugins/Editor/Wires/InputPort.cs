@@ -411,8 +411,22 @@ namespace AmplifyShaderEditor
 		private string SamplerWrappedData( ref MasterNodeDataCollector dataCollector )
 		{
 			m_internalData = "_Sampler" + PortId + UIUtils.GetNode( m_nodeId ).OutputId;
-			
-			dataCollector.AddToUniforms( m_nodeId, GeneratorUtils.GetPropertyDeclaraction( m_internalData, TextureType.Texture2D, ";" ) );
+			ParentGraph outsideGraph = UIUtils.CurrentWindow.OutsideGraph;
+			if( outsideGraph.SamplingThroughMacros )
+			{
+				if( outsideGraph.IsSRP )
+				{
+					dataCollector.AddToUniforms( m_nodeId, string.Format( Constants.TexDeclarationNoSamplerSRPMacros[ TextureType.Texture2D ], m_internalData ));
+				}
+				else
+				{
+					dataCollector.AddToUniforms( m_nodeId, string.Format( Constants.TexDeclarationNoSamplerStandardMacros[ TextureType.Texture2D ], m_internalData ));
+				}
+			}
+			else
+			{
+				dataCollector.AddToUniforms( m_nodeId, "uniform sampler2D " + m_internalData + ";" );
+			}
 
 			return m_internalData;
 		}
@@ -530,7 +544,7 @@ namespace AmplifyShaderEditor
 			if( connID < m_externalReferences.Count )
 			{
 				ParentNode node = UIUtils.GetNode( m_externalReferences[ connID ].NodeId );
-				if( node is WireNode || node is RelayNode || node is FunctionInput )
+				if( node is WireNode || node is RelayNode )
 				{
 					return node.InputPorts[ 0 ].GetOutputNodeWhichIsNotRelay( connID );
 				}
@@ -1433,8 +1447,6 @@ namespace AmplifyShaderEditor
 					case WirePortDataType.SAMPLER2D:
 					case WirePortDataType.SAMPLER3D:
 					case WirePortDataType.SAMPLERCUBE:
-					case WirePortDataType.SAMPLER2DARRAY:
-					case WirePortDataType.SAMPLERSTATE:
 					default: return false;
 				}
 			}

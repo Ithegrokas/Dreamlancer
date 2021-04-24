@@ -268,6 +268,8 @@ namespace AmplifyShaderEditor
 			{
 				m_bezierReferences.Add( new WireBezierReference() );
 			}
+
+			m_samplingThroughMacros = Preferences.GlobalUseMacros;
 		}
 
 		private void OnUndoRedoCallback()
@@ -1009,7 +1011,6 @@ namespace AmplifyShaderEditor
 				case WirePortDataType.SAMPLER2D:
 				case WirePortDataType.SAMPLER3D:
 				case WirePortDataType.SAMPLERCUBE:
-				case WirePortDataType.SAMPLER2DARRAY:
 				propertyNode = CreateInstance<SamplerNode>();
 				break;
 				default: return;
@@ -3006,17 +3007,8 @@ namespace AmplifyShaderEditor
 			if( newNode )
 			{
 				newNode.ContainerGraph = this;
-				if( newNode.IsStubNode )
-				{
-					ParentNode stubNode = newNode.ExecuteStubCode();
-					ScriptableObject.DestroyImmediate( newNode, true );
-					newNode = stubNode;
-				}
-				else
-				{
-					newNode.UniqueId = nodeId;
-					AddNode( newNode, nodeId < 0, addLast, registerUndo );
-				}
+				newNode.UniqueId = nodeId;
+				AddNode( newNode, nodeId < 0, addLast, registerUndo );
 			}
 			return newNode;
 		}
@@ -3369,11 +3361,10 @@ namespace AmplifyShaderEditor
 				nodesToDelete.Clear();
 			}
 
-			m_masterNodeId = newMasterNode.UniqueId;
-
 			if( refreshLinkedMasterNodes )
 				RefreshLinkedMasterNodes( true );
 
+			m_masterNodeId = newMasterNode.UniqueId;
 			newMasterNode.OnMaterialUpdatedEvent += OnMaterialUpdatedEvent;
 			newMasterNode.OnShaderUpdatedEvent += OnShaderUpdatedEvent;
 			newMasterNode.IsMainOutputNode = true;
@@ -3988,11 +3979,7 @@ namespace AmplifyShaderEditor
 		public bool IsHDRP { get { return m_currentSRPType == TemplateSRPType.HD; } }
 		public bool IsLWRP { get { return m_currentSRPType == TemplateSRPType.Lightweight; } }
 		public bool IsStandardSurface { get { return GetNode( m_masterNodeId ) is StandardSurfaceOutputNode; } }
-		
-		public bool SamplingMacros { 
-			get { return m_samplingThroughMacros; }
-			set { m_samplingThroughMacros = value; } 
-		}
+		public bool SamplingThroughMacros { get { return m_samplingThroughMacros && IsSRP; } set { m_samplingThroughMacros = value; } }
 		public bool HasLODs { get { return m_lodMultiPassMasterNodes[ 0 ].Count > 0; } }
 		//public bool HasLodMultiPassNodes
 		//{

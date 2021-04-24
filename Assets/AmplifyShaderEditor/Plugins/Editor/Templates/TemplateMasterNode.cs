@@ -314,8 +314,6 @@ namespace AmplifyShaderEditor
 			if( EditorGUI.EndChangeCheck() )
 				ContainerGraph.CurrentPrecision = m_currentPrecisionType;
 
-			DrawSamplingMacros();
-
 			if( m_currentTemplate.CullModeData.DataCheck == TemplateDataCheck.Valid )
 				m_cullModeHelper.Draw( this );
 
@@ -674,11 +672,6 @@ namespace AmplifyShaderEditor
 					if( m_currentTemplate.TagData.DataCheck == TemplateDataCheck.Valid )
 						m_tagsHelper.ReadFromString( ref m_currentReadParamIdx, ref nodeParams );
 				}
-
-				if( UIUtils.CurrentShaderVersion() > 18302 )
-					SamplingMacros = Convert.ToBoolean( GetCurrentParam( ref nodeParams ) );
-				else
-					SamplingMacros = false;
 			}
 			catch( Exception e )
 			{
@@ -745,8 +738,6 @@ namespace AmplifyShaderEditor
 			{
 				m_tagsHelper.WriteToString( ref nodeInfo );
 			}
-
-			IOUtils.AddFieldValueToString( ref nodeInfo, m_samplingMacros );
 		}
 
 		public override void Destroy()

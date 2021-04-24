@@ -15,7 +15,6 @@ namespace AmplifyShaderEditor
 		public bool IsFull = false;
 		public int Usage = 0;
 		public string Name;
-		public bool NoInterpolation;
 
 		public TemplateInterpElement( TemplateInterpElement other )
 		{
@@ -27,7 +26,6 @@ namespace AmplifyShaderEditor
 			IsFull = other.IsFull;
 			Usage = other.Usage;
 			Name = other.Name;
-			NoInterpolation = other.NoInterpolation;
 		}
 
 		public TemplateInterpElement( TemplateSemantics semantic )

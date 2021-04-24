@@ -1,4 +1,5 @@
-// Amplify Shader Editor - Visual Shader Editing Tool
+// Amplify Texture Editor - Visual Texture Editing Tool
+// Amplify Texture Editor - Visual Texture Editing Tool
 // Copyright (c) Amplify Creations, Lda <info@amplify.pt>
 
 using System;

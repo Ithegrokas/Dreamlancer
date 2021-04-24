@@ -112,8 +112,7 @@ namespace AmplifyShaderEditor
 		StencilFail,
 		StencilZFail,
 		RenderType,
-		RenderQueue,
-		DisableBatching
+		RenderQueue
 	}
 
 	public enum AseOptionsSetup
@@ -1125,12 +1124,6 @@ namespace AmplifyShaderEditor
 									{
 										actionItem.ActionDataIdx = 0;
 									}
-								}
-								break;
-								case PropertyActionsEnum.DisableBatching:
-								{
-									if( arr.Length > 1 )
-										actionItem.ActionData = arr[ 1 ];
 								}
 								break;
 							}

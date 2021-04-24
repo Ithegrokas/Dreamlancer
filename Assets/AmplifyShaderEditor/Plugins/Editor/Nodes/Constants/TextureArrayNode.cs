@@ -8,8 +8,7 @@ using System;
 namespace AmplifyShaderEditor
 {
 	[Serializable]
-	//[NodeAttributes( "Texture Array", "Textures", "Texture Array fetches a texture from a texture2DArray asset file given a index value", KeyCode.None, true, 0, int.MaxValue, typeof( Texture2DArray ) )]
-	[NodeAttributes( "[Old]Texture Array", "Textures", "Texture Array fetches a texture from a texture2DArray asset file given a index value", null, KeyCode.None, true, true, "SamplerNode", typeof( SamplerNode ) )]
+	[NodeAttributes( "Texture Array", "Textures", "Texture Array fetches a texture from a texture2DArray asset file given a index value", KeyCode.None, true, 0, int.MaxValue, typeof( Texture2DArray ) )]
 	public class TextureArrayNode : PropertyNode
 	{
 		[SerializeField]
@@ -682,7 +681,7 @@ namespace AmplifyShaderEditor
 				//TODO: unity now supports bias as well
 				if( m_mipMode == MipType.MipBias )
 				{
-					GeneratorUtils.AddCustomArraySamplingMacros( ref dataCollector );
+					dataCollector.UsingArrayDerivatives = true;
 					result = propertyName + ".SampleGrad(sampler" + propertyName + ", float3(" + uvs + ", " + index + "), " + m_ddxPort.GeneratePortInstructions( ref dataCollector ) + ", " + m_ddyPort.GeneratePortInstructions( ref dataCollector ) + ");";
 				}
 				else if( m_lodPort.Visible || isVertex )
@@ -699,7 +698,7 @@ namespace AmplifyShaderEditor
 				//CAREFUL mipbias here means derivative (this needs index changes)
 				if( m_mipMode == MipType.MipBias )
 				{
-					GeneratorUtils.AddCustomArraySamplingMacros( ref dataCollector );
+					dataCollector.UsingArrayDerivatives = true;
 					result = "ASE_SAMPLE_TEX2DARRAY_GRAD(" + propertyName + ", float3(" + uvs + ", " + index + "), " + m_ddxPort.GeneratePortInstructions( ref dataCollector ) + ", " + m_ddyPort.GeneratePortInstructions( ref dataCollector ) + " )";
 				}
 				else if( m_lodPort.Visible || isVertex )

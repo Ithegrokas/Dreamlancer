@@ -38,8 +38,7 @@ namespace AmplifyShaderEditor
 			WirePortDataType.FLOAT3,
 			WirePortDataType.FLOAT4,
 			WirePortDataType.COLOR,
-			WirePortDataType.INT,
-			WirePortDataType.UINT
+			WirePortDataType.INT
 		};
         
 		protected override void CommonInit( int uniqueId )

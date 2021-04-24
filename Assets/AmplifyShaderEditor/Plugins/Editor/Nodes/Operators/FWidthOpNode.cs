@@ -4,10 +4,9 @@
 namespace AmplifyShaderEditor
 {
 	[System.Serializable]
-	[NodeAttributes( "FWidth", "Math Operators", "Sum of approximate window-space partial derivatives magnitudes (Only valid on Fragment type ports)" )]
+	[NodeAttributes( "FWidth", "Math Operators", "Sum of approximate window-space partial derivatives magnitudes" )]
 	public sealed class FWidthOpNode : SingleInputOp
 	{
-		private const string FWidthErrorMsg = "Attempting to connect an FWidth to a {0} type port. It is only valid on Fragment type ports";
 		protected override void CommonInit( int uniqueId )
 		{
 			base.CommonInit( uniqueId );
@@ -21,18 +20,6 @@ namespace AmplifyShaderEditor
 														WirePortDataType.COLOR ,
 														WirePortDataType.INT);
 			//m_inputPorts[ 0 ].ChangeType( WirePortDataType.FLOAT4, false );
-		}
-
-		public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalvar )
-		{
-			if( dataCollector.PortCategory == MasterNodePortCategory.Vertex ||
-				dataCollector.PortCategory == MasterNodePortCategory.Tessellation )
-			{
-				UIUtils.ShowMessage( UniqueId, string.Format( FWidthErrorMsg, dataCollector.PortCategory ), MessageSeverity.Error );
-				return GenerateErrorValue();
-			}
-
-			return base.GenerateShaderForOutput( outputId, ref dataCollector, ignoreLocalvar );
 		}
 	}
 }

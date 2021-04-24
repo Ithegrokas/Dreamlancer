@@ -76,8 +76,7 @@ namespace AmplifyShaderEditor
 			{ WirePortDataType.SAMPLER1D,"TextureParameter"},
 			{ WirePortDataType.SAMPLER2D,"TextureParameter"},
 			{ WirePortDataType.SAMPLER3D,"TextureParameter"},
-			{ WirePortDataType.SAMPLERCUBE,"TextureParameter"},
-			{ WirePortDataType.SAMPLER2DARRAY,"TextureParameter"}
+			{ WirePortDataType.SAMPLERCUBE,"TextureParameter"}
 		};
 
 		public static readonly Dictionary<WirePortDataType, string> WireToPPSValueSet = new Dictionary<WirePortDataType, string>()
@@ -90,8 +89,7 @@ namespace AmplifyShaderEditor
 			{ WirePortDataType.SAMPLER1D,  "SetTexture"},
 			{ WirePortDataType.SAMPLER2D,  "SetTexture"},
 			{ WirePortDataType.SAMPLER3D,  "SetTexture"},
-			{ WirePortDataType.SAMPLERCUBE,"SetTexture"},
-			{ WirePortDataType.SAMPLER2DARRAY,"SetTexture"}
+			{ WirePortDataType.SAMPLERCUBE,"SetTexture"}
 		};
 
 		public static readonly Dictionary<UnityEditor.ShaderUtil.ShaderPropertyType, string> ShaderPropertyToPPSType = new Dictionary<UnityEditor.ShaderUtil.ShaderPropertyType, string>()

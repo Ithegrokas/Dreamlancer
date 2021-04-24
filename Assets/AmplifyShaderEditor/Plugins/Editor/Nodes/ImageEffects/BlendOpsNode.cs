@@ -97,15 +97,13 @@ namespace AmplifyShaderEditor
 														WirePortDataType.SAMPLER1D,
 														WirePortDataType.SAMPLER2D,
 														WirePortDataType.SAMPLER3D,
-														WirePortDataType.SAMPLERCUBE,
-														WirePortDataType.SAMPLER2DARRAY );
+														WirePortDataType.SAMPLERCUBE );
 			m_inputPorts[ 1 ].AddPortForbiddenTypes(	WirePortDataType.FLOAT3x3,
 														WirePortDataType.FLOAT4x4,
 														WirePortDataType.SAMPLER1D,
 														WirePortDataType.SAMPLER2D,
 														WirePortDataType.SAMPLER3D,
-														WirePortDataType.SAMPLERCUBE,
-														WirePortDataType.SAMPLER2DARRAY );
+														WirePortDataType.SAMPLERCUBE );
 			m_textLabelWidth = 75;
 			m_autoWrapProperties = true;
 			m_hasLeftDropdown = true;
