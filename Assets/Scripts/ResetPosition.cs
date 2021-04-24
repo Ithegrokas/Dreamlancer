@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class ResetPosition : MonoBehaviour
 {
-    public Transform originalPosition;
-    
-    public void resetPosition() 
+    [SerializeField] private Vector3 checkpointPosition;
+
+    public void resetPosition()
     {
-        gameObject.transform.position = originalPosition.position;
+        gameObject.transform.position = checkpointPosition;
+    }
+
+    public void changeCheckpoint(Vector3 newCheckpoint)
+    {
+        checkpointPosition = newCheckpoint;
     }
 }
