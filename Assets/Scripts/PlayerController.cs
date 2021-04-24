@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public Transform currentCheckpointTransform;
+    [SerializeField] private float speed = 5.0f;
     private Vector2 movement;
     private Rigidbody2D playerRB;
 
@@ -22,7 +21,7 @@ public class PlayerController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
         movement.x = Input.GetAxis("Horizontal");
 
-        
+
         playerRB.velocity = movement * speed;
     }
 }

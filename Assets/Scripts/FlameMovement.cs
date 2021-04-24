@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FlameAxis {Horizontal, Vertical}
-public enum FlameMovementType {OneWay, BackAndForth}
-public enum FlameDirection {Forward, Backward}
+public enum FlameAxis { Horizontal, Vertical }
+public enum FlameMovementType { OneWay, BackAndForth }
+public enum FlameDirection { Forward, Backward }
 public class FlameMovement : MonoBehaviour
 {
     [SerializeField] private FlameAxis axis = FlameAxis.Horizontal;
@@ -41,31 +41,32 @@ public class FlameMovement : MonoBehaviour
             phasedirection *= -1;
     }
 
-    Vector3 DestinationVector() 
+    Vector3 DestinationVector()
     {
         Vector3 orientation = Vector3.zero;
 
-        if(axis == FlameAxis.Horizontal)
+        if (axis == FlameAxis.Horizontal)
             orientation = new Vector3(distance, 0f, 0f);
-        
+
         else
             orientation = new Vector3(0f, distance, 0f);
 
-        if(direction == FlameDirection.Backward)
+        if (direction == FlameDirection.Backward)
             orientation *= (-1f);
 
         return orientation + initialPosition;
-        
+
     }
 
     void distanceHandler()
     {
         distanceTraveled += (speed * Time.deltaTime);
-        
-        if(distanceTraveled >= distance) {
+
+        if (distanceTraveled >= distance)
+        {
             distanceTraveled = 0;
             flameRB.velocity = flameRB.velocity * (-1f);
         }
-            
+
     }
 }
