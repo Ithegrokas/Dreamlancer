@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ResetPosition : MonoBehaviour
 {
-    [SerializeField] private Vector3 checkpointPosition;
+    private Vector3 checkpointPosition;
 
     public void resetPosition()
     {
