@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1274938014480026576}
   - component: {fileID: 1274938014480026583}
   - component: {fileID: 557002108458645195}
+  - component: {fileID: -8289928442969434740}
   m_Layer: 0
   m_Name: MobileBoxTile
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1377807, y: 0.13499618}
   m_EdgeRadius: 0
+--- !u!50 &-8289928442969434740
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274938014480026582}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 5
+  m_LinearDrag: 10
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: b04ddb034e853b649bc8a4c5cb92ecc1, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
