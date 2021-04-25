@@ -8,27 +8,50 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D playerRB;
     private SpriteRenderer playerSPR;
+    private bool inputEnabled = true;
+    private ResetPosition playerReset;
+    private Animator playerAnim;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
         playerSPR = GetComponent<SpriteRenderer>();
+        playerReset = GetComponent<ResetPosition>();
+        playerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement = Vector2.zero;
-        movement.y = Input.GetAxis("Vertical");
-        movement.x = Input.GetAxis("Horizontal");
+        if (inputEnabled)
+        {
+            movement = Vector2.zero;
+            movement.y = Input.GetAxis("Vertical");
+            movement.x = Input.GetAxis("Horizontal");
 
-        playerRB.velocity = movement * speed;
+            playerAnim.SetFloat("horizontalSpeed", Mathf.Abs(movement.x));
+            playerAnim.SetFloat("verticalSpeed", movement.y);
 
-        if (movement.x < 0 && !playerSPR.flipX)
-            playerSPR.flipX = true;
+            playerRB.velocity = movement * speed;
 
-        else if (movement.x > 0 && playerSPR.flipX)
-            playerSPR.flipX = false;
+            if (movement.x < 0 && playerSPR.flipX)
+                playerSPR.flipX = false;
+
+            else if (movement.x > 0 && !playerSPR.flipX)
+                playerSPR.flipX = true;
+        }
+
+    }
+
+    public void enableInput() => inputEnabled = true;
+
+    public IEnumerator Death() 
+    {
+        inputEnabled = false;
+        playerRB.velocity = Vector2.zero;
+        yield return new WaitForSeconds(2f);
+        playerReset.resetPosition();
+        inputEnabled = true;
     }
 }

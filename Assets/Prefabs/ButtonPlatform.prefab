@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5184437707771645633}
   - component: {fileID: 5184437707771645638}
   - component: {fileID: 5184437707771645635}
+  - component: {fileID: 713877773}
   m_Layer: 0
   m_Name: ButtonPlatform
   m_TagString: Unlock
@@ -101,3 +102,22 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.45, y: -0.4}
   - {x: 0.45, y: -0.4}
+--- !u!95 &713877773
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184437707771645639}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2e1a58fd04398f4e915b8535c58f474, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
