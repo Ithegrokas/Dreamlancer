@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
@@ -50,7 +50,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    public void EndDialogue()
+    void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
     }
