@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
         movement.x = Input.GetAxis("Horizontal");
 
-
         playerRB.velocity = movement * speed;
 
         if (movement.x < 0 && !playerSPR.flipX)
@@ -31,6 +30,5 @@ public class PlayerController : MonoBehaviour
 
         else if (movement.x > 0 && playerSPR.flipX)
             playerSPR.flipX = false;
-
     }
 }
