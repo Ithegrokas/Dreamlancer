@@ -8,7 +8,7 @@ public enum FlameDirection { Forward, Backward }
 public class FlameMovement : MonoBehaviour
 {
     [SerializeField] private FlameAxis axis = FlameAxis.Horizontal;
-    [SerializeField] private FlameMovementType type = FlameMovementType.OneWay;
+    [SerializeField] private FlameMovementType type = FlameMovementType.BackAndForth;
     [SerializeField] private float speed = 2.0f;
 
     [Tooltip("Forward: Up or Right, Backwards: Down or Left")]
@@ -20,25 +20,54 @@ public class FlameMovement : MonoBehaviour
     private Vector3 initialPosition;
     private float phase = 0;
     private float phasedirection = 1;
+    private Vector3 destination;
+    private SpriteRenderer flameSPR;
+    private CircleCollider2D flameCol;
 
     // Start is called before the first frame update
     void Start()
     {
         flameRB = GetComponent<Rigidbody2D>();
         initialPosition = transform.position;
+        destination = DestinationVector();
+        flameSPR = GetComponent<SpriteRenderer>();
+        flameCol = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(initialPosition, DestinationVector(), phase);
+        if (type == FlameMovementType.BackAndForth)
+        {
+            transform.position = Vector3.Lerp(initialPosition, destination, phase);
 
-        phase += Time.deltaTime * speed * phasedirection;
+            phase += Time.deltaTime * speed * phasedirection;
 
-        phase = Mathf.Clamp(phase, 0, 1);
+            phase = Mathf.Clamp(phase, 0, 1);
 
-        if ((phase >= 1) || (phase <= 0))
-            phasedirection *= -1;
+            if ((phase >= 1) || (phase <= 0))
+                phasedirection *= -1;
+
+            if (phase <= 0)
+                enableFlame();
+        }
+        else 
+        {
+            if (transform.position == destination)
+            {
+                transform.position = initialPosition;
+                enableFlame();
+            }
+                
+
+            transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col) 
+    {
+        if (col.CompareTag("Key"))
+            disableFlame();
     }
 
     Vector3 DestinationVector()
@@ -55,18 +84,17 @@ public class FlameMovement : MonoBehaviour
             orientation *= (-1f);
 
         return orientation + initialPosition;
-
     }
 
-    void distanceHandler()
+    void enableFlame()
     {
-        distanceTraveled += (speed * Time.deltaTime);
+        flameSPR.enabled = true;
+        flameCol.enabled = true;
+    }
 
-        if (distanceTraveled >= distance)
-        {
-            distanceTraveled = 0;
-            flameRB.velocity = flameRB.velocity * (-1f);
-        }
-
+    void disableFlame()
+    {
+        flameSPR.enabled = false;
+        flameCol.enabled = false;
     }
 }
