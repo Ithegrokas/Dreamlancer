@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
+    [SerializeField] private Dialogue dialogue = null;
+    public static event EventHandler<Dialogue> dialogueEvent;
 
     public void TriggerDialog()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        dialogueEvent?.Invoke(this, dialogue);
     }
 }
