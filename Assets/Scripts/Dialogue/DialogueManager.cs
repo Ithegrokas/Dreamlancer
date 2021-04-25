@@ -10,44 +10,45 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text nameText = null;
     [SerializeField] private TMP_Text dialogueText = null;
     [SerializeField] private Animator animator = null;
-    private Queue<string> sentences;
+    private Queue<DialogueSegment> segments;
     
     // Start is called before the first frame update
     void Start()
     {
-        sentences = new Queue<string>();
+        segments = new Queue<DialogueSegment>();
         DialogueTrigger.dialogueEvent += StartDialogueEventHandler;
     }
 
-    void StartDialogueEventHandler(object sender, Dialogue dialogue) 
+    void StartDialogueEventHandler(object sender, DialogueObject dialogue) 
     {
         StartDialogue(dialogue);
     }
 
-    void StartDialogue(Dialogue dialogue)
+    void StartDialogue(DialogueObject dialogue)
     {
         animator.SetBool("IsOpen", true);
-        
-        nameText.text = dialogue.name;
-        sentences.Clear();
-        foreach (string sentence in dialogue.sentences)
+        segments.Clear();
+
+        foreach (var segment in dialogue.dialogueSegments)
         {
-            sentences.Enqueue(sentence);
+            segments.Enqueue(segment);
         }
         DisplayNextSentence();
     }
 
     void DisplayNextSentence()
     {
-        if (sentences.Count == 0)
+        if (segments.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        DialogueSegment segment = segments.Dequeue();
+        nameText.text = segment.dialogueName;
+
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(segment.dialogueText));
     }
 
     void EndDialogue()

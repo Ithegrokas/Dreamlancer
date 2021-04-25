@@ -5,10 +5,10 @@ using System;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] private Dialogue dialogue = null;
-    public static event EventHandler<Dialogue> dialogueEvent;
-
-    public void TriggerDialog()
+    [Header("Dialogue")]
+    [SerializeField] private DialogueObject dialogue;
+    public static event EventHandler<DialogueObject> dialogueEvent;
+    void OnTriggerEnter2D(Collider2D other) 
     {
         dialogueEvent?.Invoke(this, dialogue);
     }
