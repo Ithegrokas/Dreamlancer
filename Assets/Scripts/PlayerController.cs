@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private bool inputEnabled = true;
     private ResetPosition playerReset;
     private Animator playerAnim;
+    [SerializeField] private GameObject onDeathVfx;
 
     // Start is called before the first frame update
     void Start()
@@ -50,8 +51,10 @@ public class PlayerController : MonoBehaviour
     {
         inputEnabled = false;
         playerRB.velocity = Vector2.zero;
+        onDeathVfx.SetActive(true);
         yield return new WaitForSeconds(2f);
         playerReset.resetPosition();
+        onDeathVfx.SetActive(false);
         inputEnabled = true;
     }
 }
