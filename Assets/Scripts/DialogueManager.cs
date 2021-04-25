@@ -1,22 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
+
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
-    public Animator animator;
+    [SerializeField] private TMP_Text nameText = null;
+    [SerializeField] private TMP_Text dialogueText = null;
+    [SerializeField] private Animator animator = null;
     private Queue<string> sentences;
     
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        DialogueTrigger.dialogueEvent += StartDialogueEventHandler;
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    void StartDialogueEventHandler(object sender, Dialogue dialogue) 
+    {
+        StartDialogue(dialogue);
+    }
+
+    void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
         

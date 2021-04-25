@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3725721868332784295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959666413003204029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 1, y: 1, z: 0}
+  - {x: 0.9331332, y: 0.9392482, z: 0}
+  - {x: 0.72959125, y: 0.9392482, z: 0}
+  - {x: 0.67632794, y: 1.0020229, z: 0}
+  - {x: 0.47088382, y: 1.0001206, z: 0}
+  - {x: 0.43093637, y: 0.94115055, z: 0}
+  - {x: 0.25022155, y: 0.9411504, z: 0}
+  - {x: 0.22, y: 1, z: 0}
+  - {x: 0, y: 1, z: 0}
+  m_ShapePathHash: -2086966934
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 68612
 --- !u!1001 &9001016161190695642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,6 +106,16 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3971110246767617852, guid: 0015dc060f79d6a489579f936c011e0c,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 564697203
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971110246767617852, guid: 0015dc060f79d6a489579f936c011e0c,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4142407805821380916, guid: 0015dc060f79d6a489579f936c011e0c,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -90,3 +133,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0015dc060f79d6a489579f936c011e0c, type: 3}
+--- !u!1 &1959666413003204029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7482777759497041767, guid: 0015dc060f79d6a489579f936c011e0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9001016161190695642}
+  m_PrefabAsset: {fileID: 0}
