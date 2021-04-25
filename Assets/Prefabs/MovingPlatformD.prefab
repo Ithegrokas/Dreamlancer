@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1058802733502452030}
   - component: {fileID: 1058802733502452024}
   - component: {fileID: 1058802733502452027}
+  - component: {fileID: 850180784}
   m_Layer: 0
   m_Name: MovingPlatformD
   m_TagString: Untagged
@@ -124,3 +125,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   orientation: 1
+--- !u!95 &850180784
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058802733502452031}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c42e6f7cb65c0ed4a958322aa67b5c55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

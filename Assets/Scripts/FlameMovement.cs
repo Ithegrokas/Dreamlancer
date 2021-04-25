@@ -14,8 +14,7 @@ public class FlameMovement : MonoBehaviour
     [Tooltip("Forward: Up or Right, Backwards: Down or Left")]
     [SerializeField] private FlameDirection direction = FlameDirection.Forward;
     [SerializeField] private float distance = 10f;
-
-    private float distanceTraveled = 0f;
+    
     private Rigidbody2D flameRB;
     private Vector3 initialPosition;
     private float phase = 0;
