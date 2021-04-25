@@ -26,6 +26,39 @@ TextureImporter:
   - first:
       213: -5579619102445457614
     second: SPR_Dreamlancer_7
+  - first:
+      213: -9004631696028227462
+    second: SPR_Dreamlancer_0
+  - first:
+      213: 4616334259753117291
+    second: SPR_Dreamlancer_1
+  - first:
+      213: -2576960768336517722
+    second: SPR_Dreamlancer_2
+  - first:
+      213: -2730833711529590998
+    second: SPR_Dreamlancer_3
+  - first:
+      213: 3498840016431723334
+    second: SPR_Dreamlancer_4
+  - first:
+      213: 1500398059566576725
+    second: SPR_Dreamlancer_5
+  - first:
+      213: 192622248405725316
+    second: SPR_Dreamlancer_6
+  - first:
+      213: 419404227177639313
+    second: SPR_Dreamlancer_7
+  - first:
+      213: 2403546502605190371
+    second: SPR_Dreamlancer_8
+  - first:
+      213: 1023881432614503440
+    second: SPR_Dreamlancer_9
+  - first:
+      213: 1824537229876702588
+    second: SPR_Dreamlancer_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -127,7 +160,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 19
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 726bba9f7ca11bac0800000000000000
-      internalID: -3841259560980728281
+      spriteID: a78a3095e2f190380800000000000000
+      internalID: -9004631696028227462
       vertices: []
       indices: 
       edges: []
@@ -146,9 +179,9 @@ TextureImporter:
       name: SPR_Dreamlancer_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 32
         y: 64
-        width: 19
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b261f8a11da566ac0800000000000000
-      internalID: -3862299776283371989
+      spriteID: b66ec050d83801040800000000000000
+      internalID: 4616334259753117291
       vertices: []
       indices: 
       edges: []
@@ -167,9 +200,9 @@ TextureImporter:
       name: SPR_Dreamlancer_2
       rect:
         serializedVersion: 2
-        x: 38
+        x: 64
         y: 64
-        width: 19
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,8 +211,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 232dd09efceb4b9f0800000000000000
-      internalID: -453527862280072654
+      spriteID: 6a52f23a5dbcc3cd0800000000000000
+      internalID: -2576960768336517722
       vertices: []
       indices: 
       edges: []
@@ -188,9 +221,9 @@ TextureImporter:
       name: SPR_Dreamlancer_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 19
+        x: 96
+        y: 64
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,8 +232,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a44255705f03dc560800000000000000
-      internalID: 7335573197004547146
+      spriteID: a2ffd9b35312a1ad0800000000000000
+      internalID: -2730833711529590998
       vertices: []
       indices: 
       edges: []
@@ -209,9 +242,9 @@ TextureImporter:
       name: SPR_Dreamlancer_4
       rect:
         serializedVersion: 2
-        x: 19
+        x: 0
         y: 32
-        width: 19
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -220,8 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f9eaa1f8095f41c0800000000000000
-      internalID: -4517294006280197639
+      spriteID: 643b55115706e8030800000000000000
+      internalID: 3498840016431723334
       vertices: []
       indices: 
       edges: []
@@ -230,9 +263,9 @@ TextureImporter:
       name: SPR_Dreamlancer_5
       rect:
         serializedVersion: 2
-        x: 38
+        x: 32
         y: 32
-        width: 19
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -241,8 +274,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79e046980966c24f0800000000000000
-      internalID: -852193458513506665
+      spriteID: 554b622f51c72d410800000000000000
+      internalID: 1500398059566576725
       vertices: []
       indices: 
       edges: []
@@ -251,9 +284,9 @@ TextureImporter:
       name: SPR_Dreamlancer_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 19
+        x: 64
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -262,8 +295,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa750d7fd8de27fb0800000000000000
-      internalID: -4651394271116503126
+      spriteID: 4807f041ae45ca200800000000000000
+      internalID: 192622248405725316
       vertices: []
       indices: 
       edges: []
@@ -272,9 +305,9 @@ TextureImporter:
       name: SPR_Dreamlancer_7
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 19
+        x: 96
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -283,8 +316,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f21c80df53192b0800000000000000
-      internalID: -5579619102445457614
+      spriteID: 19d683a2ce502d500800000000000000
+      internalID: 419404227177639313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Dreamlancer_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e43ae04fcc1b5120800000000000000
+      internalID: 2403546502605190371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Dreamlancer_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0140b1bfcbe853e00800000000000000
+      internalID: 1023881432614503440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Dreamlancer_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7da64a91fe025910800000000000000
+      internalID: 1824537229876702588
       vertices: []
       indices: 
       edges: []
