@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 7482777759497041767, guid: 0015dc060f79d6a489579f936c011e0c,
         type: 3}
       propertyPath: m_Name
-      value: Dungeon_Hole_NoBorder
+      value: Dungeon_Hole_NoEdge
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0015dc060f79d6a489579f936c011e0c, type: 3}
