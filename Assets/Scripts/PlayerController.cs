@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRB;
     private SpriteRenderer playerSPR;
 
-    private bool isFlipped;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +28,9 @@ public class PlayerController : MonoBehaviour
 
         if (movement.x < 0 && !playerSPR.flipX)
             playerSPR.flipX = true;
-        
-        else if (movement.x >=0 && playerSPR.flipX) 
+
+        else if (movement.x > 0 && playerSPR.flipX)
             playerSPR.flipX = false;
-        
-            
+
     }
 }

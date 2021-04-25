@@ -11,7 +11,7 @@ public class UnlockSystem : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Unlock"))
             col.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
-            
+
     }
 
 }
