@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2089385813496356421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293401998710939900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: 0.85, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 1, y: 1, z: 0}
+  - {x: 0.85, y: 1, z: 0}
+  m_ShapePathHash: -396490643
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -80570
 --- !u!1001 &8650260730170677147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,6 +99,16 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3971110246767617852, guid: 0015dc060f79d6a489579f936c011e0c,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 564697203
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971110246767617852, guid: 0015dc060f79d6a489579f936c011e0c,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4142407805821380916, guid: 0015dc060f79d6a489579f936c011e0c,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -90,3 +126,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0015dc060f79d6a489579f936c011e0c, type: 3}
+--- !u!1 &2293401998710939900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7482777759497041767, guid: 0015dc060f79d6a489579f936c011e0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8650260730170677147}
+  m_PrefabAsset: {fileID: 0}
