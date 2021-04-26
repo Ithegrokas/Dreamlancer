@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueFlowerTrigger : MonoBehaviour
 {
-    private List<Animator> flowerAnims;
+    private List<Animator> flowerAnims = new List<Animator>();
 
     void Start()
     {
