@@ -11,6 +11,24 @@ TextureImporter:
   - first:
       213: 8142023146069807142
     second: SPR_Flower_2
+  - first:
+      213: -8879026383561386917
+    second: SPR_Flower_0
+  - first:
+      213: 659328502467236785
+    second: SPR_Flower_1
+  - first:
+      213: -7851782251673789438
+    second: SPR_Flower_2
+  - first:
+      213: -4374172490734705729
+    second: SPR_Flower_3
+  - first:
+      213: 7834481273024861540
+    second: SPR_Flower_4
+  - first:
+      213: -9057967366535586505
+    second: SPR_Flower_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -74,7 +92,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -86,7 +104,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -98,7 +116,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -111,18 +129,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 26
         width: 26
-        height: 52
-      alignment: 6
+        height: 26
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8f732a1197dfb0a0800000000000000
-      internalID: -6863530288880582773
+      spriteID: b5490881c8c57c480800000000000000
+      internalID: -8879026383561386917
       vertices: []
       indices: 
       edges: []
@@ -132,18 +150,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 26
-        y: 0
+        y: 26
         width: 26
-        height: 52
-      alignment: 6
+        height: 26
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d5e57042454f00e0800000000000000
-      internalID: -2301544733711407655
+      spriteID: 1b399db97c7662900800000000000000
+      internalID: 659328502467236785
       vertices: []
       indices: 
       edges: []
@@ -153,18 +171,81 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 52
-        y: 0
+        y: 26
         width: 26
-        height: 52
-      alignment: 6
+        height: 26
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 620df7eb9e64ef070800000000000000
-      internalID: 8142023146069807142
+      spriteID: 20c544384add80390800000000000000
+      internalID: -7851782251673789438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Flower_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3e8778b41db43c0800000000000000
+      internalID: -4374172490734705729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Flower_4
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 465d81e753ba9bc60800000000000000
+      internalID: 7834481273024861540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Flower_5
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73dd09adba2ab4280800000000000000
+      internalID: -9057967366535586505
       vertices: []
       indices: 
       edges: []

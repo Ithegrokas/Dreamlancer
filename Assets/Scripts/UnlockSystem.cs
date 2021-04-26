@@ -6,11 +6,13 @@ public class UnlockSystem : MonoBehaviour
 {
 
     [SerializeField] private GameObject doorObj = null;
+    [SerializeField] private Color roomColor = Color.black;
     private List<Pedestal> pedestals = new List<Pedestal>();
     private List<Animator> flameAnims = new List<Animator>();
     private Animator unlockAnim;
     private Animator doorAnim;
     private BoxCollider2D doorCol;
+    
 
     void Start()
     {
@@ -21,11 +23,10 @@ public class UnlockSystem : MonoBehaviour
         doorCol = doorObj.GetComponent<BoxCollider2D>();
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Key"))
         {
-            col.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
             unlockAnim.SetBool("BoxKeyActive", true);
             foreach (Pedestal pedestal in pedestals)
             {
