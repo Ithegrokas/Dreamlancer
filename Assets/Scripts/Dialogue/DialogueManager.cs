@@ -10,18 +10,21 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text nameText = null;
     [SerializeField] private TMP_Text dialogueText = null;
     [SerializeField] private GameObject pressSpace = null;
+    [SerializeField] private RectTransform dialogueBox = null;
     private Queue<DialogueSegment> segments;
-    private GameObject dialogue_box;
+    private Vector2 dialogueBoxDown = new Vector2(0f, 156f);
+    private Vector2 dialogueBoxUp = new Vector2(0f, 612f);
     private PlayerController playerController;
     private bool textIsWritten = false;
+    private Camera main;
 
     // Start is called before the first frame update
     void Start()
     {
         segments = new Queue<DialogueSegment>();
         DialogueTrigger.dialogueEvent += StartDialogueEventHandler;
-        dialogue_box = nameText.transform.parent.gameObject;
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        main = Camera.main;
     }
 
     void StartDialogueEventHandler(object sender, DialogueObject dialogue)
@@ -71,14 +74,21 @@ public class DialogueManager : MonoBehaviour
 
     void StartDialogue()
     {
-        dialogue_box.SetActive(true);
+        bool playerIsUp = playerController.transform.position.y > main.transform.position.y;
+
+        if (playerIsUp)
+            dialogueBox.anchoredPosition = dialogueBoxDown;
+        else
+            dialogueBox.anchoredPosition = dialogueBoxUp;
+
+        dialogueBox.gameObject.SetActive(true);
         playerController.disableInput();
     }
 
     void EndDialogue()
     {
         pressSpace.SetActive(false);
-        dialogue_box.SetActive(false);
+        dialogueBox.gameObject.SetActive(false);
         playerController.enableInput();
     }
 
