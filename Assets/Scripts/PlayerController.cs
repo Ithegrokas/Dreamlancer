@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private GameObject onDeathVfx = null;
+    [SerializeField] private GameObject onRespawnVfx = null;
+    [SerializeField] private GameObject cinematicParticles = null;
     [SerializeField] private float vfxTime = 5f;
     [SerializeField] private bool keepVfxActive = false;
     private Vector2 movement;
@@ -78,13 +80,13 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Death()
     {
-        StartCoroutine(Vfx());
+        StartCoroutine(deathVfx());
         Dying();
         yield return new WaitForSeconds(2f);
         Respawn();
     }
 
-    IEnumerator Vfx()
+    IEnumerator deathVfx()
     {
         onDeathVfx.SetActive(true);
 
@@ -92,5 +94,20 @@ public class PlayerController : MonoBehaviour
 
         if (!keepVfxActive)
             onDeathVfx.SetActive(false);
+    }
+
+    IEnumerator respawnVfx()
+    {
+        onRespawnVfx.SetActive(true);
+
+        yield return new WaitForSeconds(vfxTime);
+
+        if (!keepVfxActive)
+            onRespawnVfx.SetActive(false);
+    }
+
+    public void enableCinematic()
+    {
+        cinematicParticles.SetActive(true);
     }
 }
