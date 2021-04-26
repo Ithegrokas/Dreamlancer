@@ -9,6 +9,8 @@ TagManager:
   - Flame
   - Pedestal
   - Door
+  - Enemy
+  - Flower
   layers:
   - Default
   - TransparentFX
