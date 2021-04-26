@@ -16,7 +16,7 @@ public class EnemyHit : MonoBehaviour
         {
            StartCoroutine(player.GetComponent<PlayerController>().Death());
 
-            if (enemyAnim != null)
+            if (!gameObject.CompareTag("Flame"))
                 enemyAnim.SetBool("PlayerHit", true);
         }
             
@@ -26,7 +26,7 @@ public class EnemyHit : MonoBehaviour
     {
         if (player.CompareTag("Player"))
         {
-            if (enemyAnim != null)
+            if (!gameObject.CompareTag("Flame"))
             {
                 enemyAnim.SetBool("PlayerHit", false);
             }

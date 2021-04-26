@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [SerializeField] private GameObject virtualCam;
+    [SerializeField] private GameObject virtualCam = null;
 
     private void OnTriggerEnter2D(Collider2D col)
     {

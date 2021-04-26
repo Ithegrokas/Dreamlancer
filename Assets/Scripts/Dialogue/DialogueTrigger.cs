@@ -6,7 +6,7 @@ using System;
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Dialogue")]
-    [SerializeField] private DialogueObject dialogue;
+    [SerializeField] private DialogueObject dialogue = null;
     public static event EventHandler<DialogueObject> dialogueEvent;
     void OnTriggerEnter2D(Collider2D col) 
     {

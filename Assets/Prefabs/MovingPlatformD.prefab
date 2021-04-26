@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   orientation: 1
+  attractEffect: 0.7
 --- !u!95 &850180784
 Animator:
   serializedVersion: 3
