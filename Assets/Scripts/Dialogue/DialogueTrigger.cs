@@ -8,8 +8,9 @@ public class DialogueTrigger : MonoBehaviour
     [Header("Dialogue")]
     [SerializeField] private DialogueObject dialogue;
     public static event EventHandler<DialogueObject> dialogueEvent;
-    void OnTriggerEnter2D(Collider2D other) 
+    void OnTriggerEnter2D(Collider2D col) 
     {
-        dialogueEvent?.Invoke(this, dialogue);
+        if(col.CompareTag("Player") && !col.isTrigger)
+            dialogueEvent?.Invoke(this, dialogue);
     }
 }

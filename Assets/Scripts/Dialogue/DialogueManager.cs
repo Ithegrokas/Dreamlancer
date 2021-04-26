@@ -9,14 +9,16 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text nameText = null;
     [SerializeField] private TMP_Text dialogueText = null;
-    [SerializeField] private Animator animator = null;
     private Queue<DialogueSegment> segments;
+
+    private GameObject dialogue_box;
     
     // Start is called before the first frame update
     void Start()
     {
         segments = new Queue<DialogueSegment>();
         DialogueTrigger.dialogueEvent += StartDialogueEventHandler;
+        dialogue_box = nameText.transform.parent.gameObject;
     }
 
     void StartDialogueEventHandler(object sender, DialogueObject dialogue) 
@@ -26,7 +28,6 @@ public class DialogueManager : MonoBehaviour
 
     void StartDialogue(DialogueObject dialogue)
     {
-        animator.SetBool("IsOpen", true);
         segments.Clear();
 
         foreach (var segment in dialogue.dialogueSegments)
@@ -47,13 +48,15 @@ public class DialogueManager : MonoBehaviour
         DialogueSegment segment = segments.Dequeue();
         nameText.text = segment.dialogueName;
 
+        dialogue_box.SetActive(true);
         StopAllCoroutines();
         StartCoroutine(TypeSentence(segment.dialogueText));
+
     }
 
     void EndDialogue()
     {
-        animator.SetBool("IsOpen", false);
+        dialogue_box.SetActive(false);
     }
 
     IEnumerator TypeSentence(string sentence)
