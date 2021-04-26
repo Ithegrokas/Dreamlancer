@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1300b2e51ba448b46bd876ba1db37caa, type: 3}
+  m_Name: Level1_1
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - dialogueName: The Dreamlancer
+    dialogueText: Hmm, this person seems to be going through a somewhat hard time.
+      Usually, these kinds of walls are found on people that need protection and
+      reassurance.
+  - dialogueName: The Dreamlancer
+    dialogueText: I wonder why is that in this case... I'll need to find something
+      heavy to push that tile down.

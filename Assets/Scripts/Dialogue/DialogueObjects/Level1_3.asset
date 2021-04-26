@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1300b2e51ba448b46bd876ba1db37caa, type: 3}
+  m_Name: Level1_3
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - dialogueName: The Dreamlancer
+    dialogueText: This seems heavy enough, lets get it to the tile.
+  - dialogueName: ???
+    dialogueText: "Well, I don\u2019t think its THAT heavy."
+  - dialogueName: The Dreamlancer
+    dialogueText: "Who\u2019s there?"
+  - dialogueName: Miss Margarita
+    dialogueText: "Hello young man, my name is Margarita. I\u2019m the owner of this
+      dream."
+  - dialogueName: The Dreamlancer
+    dialogueText: "Great! Nice to meet you, Miss Margarita! I\u2019m The Dreamlancer!
+      I\u2019ve come to deliver a package to you."
+  - dialogueName: Miss Margarita
+    dialogueText: "Thank you very much, young man. Though, sadly, I\u2019m not right
+      here with you. You can only hear me."
+  - dialogueName: Miss Margarita
+    dialogueText: To access my chambers you must bring that not-so-heavy box through
+      doors so that you can traverse them.
+  - dialogueName: The Dreamlancer
+    dialogueText: "Understood Miss Margarita, I\u2019m on my way."

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1300b2e51ba448b46bd876ba1db37caa, type: 3}
+  m_Name: Level2_1
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - dialogueName: The Dreamlancer
+    dialogueText: Now these are a whole lot of conveyor belts. Why are there so many?
+  - dialogueName: Miss Margarita
+    dialogueText: Oh, you know those little flames you saw? Those are my munchkins.
+      They remember me of a play my dad used to take me when I was a child.
+  - dialogueName: Miss Margarita
+    dialogueText: "Anyways, they loooove to set them up and use them to play. And
+      I don\u2019t mind either. Even in my dreams, it\u2019s difficult being old."
+  - dialogueName: The Dreamlancer
+    dialogueText: Of course, I understand Miss Margarita.
+  - dialogueName: Miss Margarita
+    dialogueText: "Well, I won\u2019t tell you the correct route though. The munchkins
+      have worked too hard on this for me to let you cheat it."
