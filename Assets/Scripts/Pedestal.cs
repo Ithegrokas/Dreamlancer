@@ -6,9 +6,7 @@ public class Pedestal : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer crystalRenderer = null;
 
-    public static Color color;
-
-    public void changeCrystalColor()
+    public void changeCrystalColor(Color color)
     {
         crystalRenderer.color = color;
     }

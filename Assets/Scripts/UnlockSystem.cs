@@ -9,6 +9,7 @@ public class UnlockSystem : MonoBehaviour
     [SerializeField] private Color roomColor = Color.black;
     private List<Pedestal> pedestals = new List<Pedestal>();
     private List<Animator> flameAnims = new List<Animator>();
+    private List<SpriteRenderer> flameSprites = new List<SpriteRenderer>();
     private Animator unlockAnim;
     private Animator doorAnim;
     private BoxCollider2D doorCol;
@@ -17,8 +18,13 @@ public class UnlockSystem : MonoBehaviour
     void Start()
     {
         unlockAnim = GetComponent<Animator>();
-        flameAnims = getFlameAnimators();
         pedestals = getPedestals();
+        getFlameAnimators();
+
+        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Door"))
+            if(obj.transform.parent == transform.parent)
+                doorObj = obj;
+
         doorAnim = doorObj.GetComponent<Animator>();
         doorCol = doorObj.GetComponent<BoxCollider2D>();
     }
@@ -30,29 +36,32 @@ public class UnlockSystem : MonoBehaviour
             unlockAnim.SetBool("BoxKeyActive", true);
             foreach (Pedestal pedestal in pedestals)
             {
-                pedestal.changeCrystalColor();
+                pedestal.changeCrystalColor(roomColor);
             }
             foreach (Animator anim in flameAnims)
             {
                 anim.SetBool("isHappy", true);
+
+            }
+            foreach (SpriteRenderer sprite in flameSprites)
+            {
+                sprite.color = roomColor;
             }
             doorAnim.SetBool("Unlock", true);
             doorCol.enabled = false;
         }
     }
 
-    List<Animator> getFlameAnimators()
+    void getFlameAnimators()
     {
-        List<Animator> anims = new List<Animator>();
-
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Flame"))
         {
             if (obj.transform.parent == transform.parent)
             {
-                anims.Add(obj.GetComponent<Animator>());
+                flameAnims.Add(obj.GetComponent<Animator>());
+                flameSprites.Add(obj.GetComponent<SpriteRenderer>());
             }
         }
-        return anims;
     }
 
     List<Pedestal> getPedestals()
@@ -68,7 +77,4 @@ public class UnlockSystem : MonoBehaviour
         }
         return anims;
     }
-
-
-
 }

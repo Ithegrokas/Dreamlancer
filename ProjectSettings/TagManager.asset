@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Key
   - Unlock
   - Flame
   - Pedestal
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -18,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - UnlockSystem
+  - 
   - 
   - 
   - 
