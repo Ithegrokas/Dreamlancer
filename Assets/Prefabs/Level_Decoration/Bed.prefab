@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6405190527153160319}
   - component: {fileID: 6405190527153160318}
-  - component: {fileID: 6405190527153160312}
+  - component: {fileID: 4016128432356868135}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6405190527153160312
-PolygonCollider2D:
+--- !u!61 &4016128432356868135
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -105,16 +105,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.49186468, y: -0.008063495}
-      - {x: 0.37703753, y: -0.011547074}
-      - {x: 0.10457039, y: -0.0050923377}
-      - {x: -0.35753775, y: -0.0014845431}
-      - {x: -0.5057545, y: 0.004368551}
-      - {x: -0.5, y: -0.5}
-      - {x: -0.35825825, y: -0.49488536}
-      - {x: -0.35646868, y: -0.34385368}
-      - {x: 0.38523054, y: -0.3460435}
-      - {x: 0.39032316, y: -0.50017047}
-      - {x: 0.5, y: -0.5}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.6}
+  m_EdgeRadius: 0
