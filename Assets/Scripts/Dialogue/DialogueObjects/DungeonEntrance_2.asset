@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - dialogueName: The Dreamlancer
-    dialogueText: 'Hmm, it looks like that box needs to be pushed over the pedestal
+    dialogueText: 'Hmm, it looks like this box needs to be pushed over the platform
       to open the door...
 
 '
