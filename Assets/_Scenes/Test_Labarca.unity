@@ -766,6 +766,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1045609382725410218, guid: b862a9493ae650441be4174bab3f7a30,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 82347701}
     - target: {fileID: 1274938014480026576, guid: b862a9493ae650441be4174bab3f7a30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1267,16 +1272,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1274938014480026576, guid: 8b234b67d6b5f0d4c8a117fb2430047c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1274938014480026576, guid: 8b234b67d6b5f0d4c8a117fb2430047c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1274938014480026582, guid: 8b234b67d6b5f0d4c8a117fb2430047c,
         type: 3}
@@ -1904,6 +1899,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 864354990, guid: 4137967f5e78c0a479c56ee9a37d8396, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864354990, guid: 4137967f5e78c0a479c56ee9a37d8396, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 864354991, guid: 4137967f5e78c0a479c56ee9a37d8396, type: 3}
       propertyPath: m_Color.a
       value: 0.49803922

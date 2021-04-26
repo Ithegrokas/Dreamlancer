@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 1189545418109699660
     second: SPR_OldLady_1
+  - first:
+      213: 5831401111837967733
+    second: SPR_OldLady_0
+  - first:
+      213: 7762653034509481497
+    second: SPR_OldLady_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -111,15 +117,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e305866959dbb7340800000000000000
-      internalID: 4862688672847777854
+      spriteID: 5758be54a6c4de050800000000000000
+      internalID: 5831401111837967733
       vertices: []
       indices: 
       edges: []
@@ -132,15 +138,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c464f9a514d128010800000000000000
-      internalID: 1189545418109699660
+      spriteID: 916bb8c7ecb7abb60800000000000000
+      internalID: 7762653034509481497
       vertices: []
       indices: 
       edges: []
