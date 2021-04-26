@@ -42,6 +42,8 @@ public class PlayerCinematic : MonoBehaviour
 
         GetComponent<Animator>().SetBool("cinematicEnded", true);
         //GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+
+        GetComponent<PlayerController>().enableInput();
         
     }
 
