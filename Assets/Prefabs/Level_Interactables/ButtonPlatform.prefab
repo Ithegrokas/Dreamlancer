@@ -95,10 +95,10 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0.5}
+  m_Offset: {x: 0.5, y: 1}
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.45, y: -0.4}
@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfa20b184128a94f9f5288a2e180d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorAnim: {fileID: 0}
-  PedestalAnim: {fileID: 0}
+  doorObj: {fileID: 0}
+  roomColor: {r: 0, g: 0, b: 0, a: 1}
