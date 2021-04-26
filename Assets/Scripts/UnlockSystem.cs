@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class UnlockSystem : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class UnlockSystem : MonoBehaviour
     [SerializeField] private Color roomColor = Color.black;
     private List<Pedestal> pedestals = new List<Pedestal>();
     private List<Animator> flameAnims = new List<Animator>();
+    private List<Light2D> flameLights = new List<Light2D>();
     private List<SpriteRenderer> flameSprites = new List<SpriteRenderer>();
+    private List<ParticleSystem> flameEmbers = new List<ParticleSystem>(); 
     private Animator unlockAnim;
     private Animator doorAnim;
     private BoxCollider2D doorCol;
@@ -19,7 +22,7 @@ public class UnlockSystem : MonoBehaviour
     {
         unlockAnim = GetComponent<Animator>();
         pedestals = getPedestals();
-        getFlameAnimators();
+        getFlamesComponents();
 
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Door"))
             if(obj.transform.parent == transform.parent)
@@ -34,25 +37,19 @@ public class UnlockSystem : MonoBehaviour
         if (col.gameObject.CompareTag("Key"))
         {
             unlockAnim.SetBool("BoxKeyActive", true);
-            foreach (Pedestal pedestal in pedestals)
-            {
-                pedestal.changeCrystalColor(roomColor);
-            }
-            foreach (Animator anim in flameAnims)
-            {
-                anim.SetBool("isHappy", true);
 
-            }
-            foreach (SpriteRenderer sprite in flameSprites)
-            {
-                sprite.color = roomColor;
-            }
+            pedestals.ForEach(pedestal => pedestal.changeCrystalColor(roomColor));
+            flameAnims.ForEach(anim => anim.SetBool("isHappy",true));
+            flameSprites.ForEach(sprite => sprite.color = roomColor);
+            flameLights.ForEach( light => light.color = roomColor);
+            //add flame embers
+
             doorAnim.SetBool("Unlock", true);
             doorCol.enabled = false;
         }
     }
 
-    void getFlameAnimators()
+    void getFlamesComponents()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Flame"))
         {
@@ -60,6 +57,8 @@ public class UnlockSystem : MonoBehaviour
             {
                 flameAnims.Add(obj.GetComponent<Animator>());
                 flameSprites.Add(obj.GetComponent<SpriteRenderer>());
+                flameLights.Add(obj.GetComponent<Light2D>());
+                flameEmbers.Add(obj.GetComponent<ParticleSystem>());
             }
         }
     }
