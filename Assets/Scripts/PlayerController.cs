@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
+    [SerializeField] private GameObject onDeathVfx = null;
+    [SerializeField] private float vfxTime = 5f;
+    [SerializeField] private bool keepVfxActive = false;
     private Vector2 movement;
     private Rigidbody2D playerRB;
     private SpriteRenderer playerSPR;
@@ -12,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private ResetPosition playerReset;
     private Animator playerAnim;
     private BoxCollider2D[] playerCols;
-    [SerializeField] private GameObject onDeathVfx = null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +60,6 @@ public class PlayerController : MonoBehaviour
     void Dying()
     {
         inputEnabled = false;
-        onDeathVfx.SetActive(true);
         foreach (BoxCollider2D col in playerCols)
         {
             col.enabled = false;
@@ -67,7 +69,6 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         playerReset.resetPosition();
-        onDeathVfx.SetActive(false);
         inputEnabled = true;
         foreach (BoxCollider2D col in playerCols)
         {
@@ -77,8 +78,19 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Death()
     {
+        StartCoroutine(Vfx());
         Dying();
         yield return new WaitForSeconds(2f);
         Respawn();
+    }
+
+    IEnumerator Vfx()
+    {
+        onDeathVfx.SetActive(true);
+
+        yield return new WaitForSeconds(vfxTime);
+
+        if (!keepVfxActive)
+            onDeathVfx.SetActive(false);
     }
 }
