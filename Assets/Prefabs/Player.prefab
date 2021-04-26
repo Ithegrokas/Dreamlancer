@@ -201,6 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   onDeathVfx: {fileID: 2479621143515506035}
+  vfxTime: 5
+  keepVfxActive: 0
 --- !u!95 &2033127727
 Animator:
   serializedVersion: 3
@@ -268,12 +270,12 @@ PrefabInstance:
     - target: {fileID: 5459479522387816234, guid: d4cf0b48271359f46b2886fc811c96e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5459479522387816234, guid: d4cf0b48271359f46b2886fc811c96e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5459479522387816234, guid: d4cf0b48271359f46b2886fc811c96e0,
         type: 3}
