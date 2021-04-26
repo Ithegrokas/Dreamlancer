@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5184437707771645638}
   - component: {fileID: 5184437707771645635}
   - component: {fileID: 713877773}
+  - component: {fileID: 5738472905359992556}
   m_Layer: 0
   m_Name: ButtonPlatform
   m_TagString: Unlock
@@ -121,3 +122,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5738472905359992556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184437707771645639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abfa20b184128a94f9f5288a2e180d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnim: {fileID: 0}
+  PedestalAnim: {fileID: 0}

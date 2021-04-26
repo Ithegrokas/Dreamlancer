@@ -5,7 +5,8 @@ using UnityEngine;
 public class UnlockSystem : MonoBehaviour
 {
 
-    [SerializeField] private LayerMask unlockLayer;
+    [SerializeField] private Animator doorAnim = null;
+    [SerializeField] private Animator PedestalAnim = null;
     private Animator unlockAnim;
 
     private void Start() 
