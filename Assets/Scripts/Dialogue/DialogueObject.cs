@@ -15,7 +15,7 @@ public class DialogueObject : ScriptableObject
 public struct DialogueSegment
 {
     public string dialogueName;
-    [TextArea(3,7)]public string dialogueText;
+    [TextArea(3, 7)] public string dialogueText;
 
 }
 

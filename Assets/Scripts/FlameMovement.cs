@@ -14,7 +14,7 @@ public class FlameMovement : MonoBehaviour
     [Tooltip("Forward: Up or Right, Backwards: Down or Left")]
     [SerializeField] private FlameDirection direction = FlameDirection.Forward;
     [SerializeField] private float distance = 10f;
-    
+
     private Rigidbody2D flameRB;
     private Vector3 initialPosition;
     private float phase = 0;
@@ -50,20 +50,20 @@ public class FlameMovement : MonoBehaviour
             if (phase <= 0)
                 enableFlame();
         }
-        else 
+        else
         {
             if (transform.position == destination)
             {
                 transform.position = initialPosition;
                 enableFlame();
             }
-                
+
 
             transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col) 
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Key"))
             disableFlame();

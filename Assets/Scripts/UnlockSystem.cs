@@ -12,7 +12,7 @@ public class UnlockSystem : MonoBehaviour
     private Animator doorAnim;
     private BoxCollider2D doorCol;
 
-    void Start() 
+    void Start()
     {
         unlockAnim = GetComponent<Animator>();
         flameAnims = getFlameAnimators();
@@ -23,19 +23,19 @@ public class UnlockSystem : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Key")) 
+        if (col.gameObject.CompareTag("Key"))
         {
             col.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
             unlockAnim.SetBool("BoxKeyActive", true);
-            foreach(Pedestal pedestal in pedestals)
+            foreach (Pedestal pedestal in pedestals)
             {
                 pedestal.changeCrystalColor();
             }
-            foreach(Animator anim in flameAnims)
+            foreach (Animator anim in flameAnims)
             {
                 anim.SetBool("isHappy", true);
             }
-            doorAnim.SetBool("Unlock",true);
+            doorAnim.SetBool("Unlock", true);
             doorCol.enabled = false;
         }
     }
@@ -46,7 +46,7 @@ public class UnlockSystem : MonoBehaviour
 
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Flame"))
         {
-            if(obj.transform.parent == transform.parent)
+            if (obj.transform.parent == transform.parent)
             {
                 anims.Add(obj.GetComponent<Animator>());
             }
@@ -60,7 +60,7 @@ public class UnlockSystem : MonoBehaviour
 
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Pedestal"))
         {
-            if(obj.transform.parent == transform.parent)
+            if (obj.transform.parent == transform.parent)
             {
                 anims.Add(obj.GetComponent<Pedestal>());
             }
@@ -68,6 +68,6 @@ public class UnlockSystem : MonoBehaviour
         return anims;
     }
 
-    
+
 
 }

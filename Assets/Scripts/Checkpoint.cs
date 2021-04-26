@@ -10,14 +10,15 @@ public class Checkpoint : MonoBehaviour
     {
         checkpointPosition = transform.position;
     }
-    
+
     void OnTriggerEnter2D(Collider2D player)
     {
         if (player.gameObject.CompareTag("Player"))
             player.GetComponent<ResetPosition>().changeCheckpoint(checkpointPosition);
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos()
+    {
         Gizmos.DrawWireCube(transform.position, Vector3.one);
     }
 }

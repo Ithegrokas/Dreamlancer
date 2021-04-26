@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
     private GameObject dialogue_box;
     private PlayerController playerController;
     private bool textIsWritten = false;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
-    void StartDialogueEventHandler(object sender, DialogueObject dialogue) 
+    void StartDialogueEventHandler(object sender, DialogueObject dialogue)
     {
         StartDialogueSequence(dialogue);
     }
@@ -54,19 +54,19 @@ public class DialogueManager : MonoBehaviour
 
         StartDialogue();
 
-        if(typeSentenceRoutine != null)
+        if (typeSentenceRoutine != null)
             StopCoroutine(typeSentenceRoutine);
-        
-        typeSentenceRoutine =  StartCoroutine(TypeSentence(segment.dialogueText));
+
+        typeSentenceRoutine = StartCoroutine(TypeSentence(segment.dialogueText));
 
         yield return WaitForText();
 
         pressSpace.SetActive(true);
-        while(!Input.GetKeyDown(KeyCode.Space))
+        while (!Input.GetKeyDown(KeyCode.Space))
             yield return null;
 
         StartCoroutine(DisplayNextSentence());
-        
+
     }
 
     void StartDialogue()
@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator WaitForText()
     {
-        while(!textIsWritten)
+        while (!textIsWritten)
             yield return null;
     }
 

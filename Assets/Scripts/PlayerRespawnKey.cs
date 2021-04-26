@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerRespawnKey : MonoBehaviour
 {
-    
+
     private Transform boxKey;
     private Vector3 boxKeySpawn;
     // Start is called before the first frame update

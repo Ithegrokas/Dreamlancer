@@ -12,7 +12,7 @@ public class EnemyHit : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D player)
     {
-        if (player.CompareTag("Player") && !player.isTrigger)
+        if (player.CompareTag("Player"))
         {
            StartCoroutine(player.GetComponent<PlayerController>().Death());
 

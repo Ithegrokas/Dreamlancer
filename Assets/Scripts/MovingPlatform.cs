@@ -7,7 +7,7 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] private float speed = 7f;
     [SerializeField] private MovingPlatformDirection orientation = MovingPlatformDirection.Up;
-    [Range(0,1)] [SerializeField] private float attractEffect = 1f;
+    [Range(0, 1)] [SerializeField] private float attractEffect = 1f;
     private Rigidbody2D platformRB;
     private Vector2 direction;
     private Vector2 attractDir;

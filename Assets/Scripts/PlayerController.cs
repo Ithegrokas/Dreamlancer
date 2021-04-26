@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private bool inputEnabled = true;
     private ResetPosition playerReset;
     private Animator playerAnim;
+    private BoxCollider2D[] playerCols;
     [SerializeField] private GameObject onDeathVfx = null;
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
         playerSPR = GetComponent<SpriteRenderer>();
         playerReset = GetComponent<ResetPosition>();
         playerAnim = GetComponent<Animator>();
+        playerCols = GetComponents<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -39,8 +41,8 @@ public class PlayerController : MonoBehaviour
             else if (movement.x > 0 && !playerSPR.flipX)
                 playerSPR.flipX = true;
         }
-        else 
-        {   
+        else
+        {
             playerRB.velocity = Vector2.zero;
         }
         playerAnim.SetFloat("horizontalSpeed", Mathf.Abs(movement.x));
@@ -52,13 +54,31 @@ public class PlayerController : MonoBehaviour
 
     public void disableInput() => inputEnabled = false;
 
-    public IEnumerator Death() 
+    void Dying()
     {
         inputEnabled = false;
         onDeathVfx.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        foreach (BoxCollider2D col in playerCols)
+        {
+            col.enabled = false;
+        }
+    }
+
+    void Respawn()
+    {
         playerReset.resetPosition();
         onDeathVfx.SetActive(false);
         inputEnabled = true;
+        foreach (BoxCollider2D col in playerCols)
+        {
+            col.enabled = true;
+        }
+    }
+
+    public IEnumerator Death()
+    {
+        Dying();
+        yield return new WaitForSeconds(2f);
+        Respawn();
     }
 }
