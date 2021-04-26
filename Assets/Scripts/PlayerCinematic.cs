@@ -41,6 +41,7 @@ public class PlayerCinematic : MonoBehaviour
         }
 
         GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+        
     }
 
 }
