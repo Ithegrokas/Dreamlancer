@@ -7,7 +7,7 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] private float speed = 7f;
     [SerializeField] private MovingPlatformDirection orientation = MovingPlatformDirection.Up;
-    [Range(0, 1)] [SerializeField] private float attractEffect = 1f;
+    [Range(1, 3)] [SerializeField] private float attractEffect = 1f;
     private Rigidbody2D platformRB;
     private Vector2 direction;
     private Vector2 attractDir;
@@ -22,13 +22,13 @@ public class MovingPlatform : MonoBehaviour
         if (col.CompareTag("Key"))
         {
             Vector2 pos = col.transform.position;
-            Vector2 delta = Vector2.MoveTowards(col.transform.position, transform.position, speed * Time.deltaTime);
+            Vector2 delta = Vector2.MoveTowards(col.transform.position, transform.position, speed * Time.deltaTime * attractEffect);
 
             if (direction.y != 0)
-                pos.x = delta.x * attractEffect;
+                pos.x = delta.x;
 
             else if (direction.x != 0)
-                pos.y = delta.y * attractEffect;
+                pos.y = delta.y;
 
             col.transform.position = pos;
 
