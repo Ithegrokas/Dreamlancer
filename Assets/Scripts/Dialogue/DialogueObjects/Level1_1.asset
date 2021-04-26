@@ -18,5 +18,5 @@ MonoBehaviour:
       Usually, these kinds of walls are found on people that need protection and
       reassurance.
   - dialogueName: The Dreamlancer
-    dialogueText: I wonder why is that in this case... I'll need to find something
-      heavy to push that tile down.
+    dialogueText: I wonder why is that in this case... I'll need to find another
+      box to push that tile down.
