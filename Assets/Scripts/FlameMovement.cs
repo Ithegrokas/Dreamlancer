@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine;
 
 public enum FlameAxis { Horizontal, Vertical }
@@ -14,6 +15,7 @@ public class FlameMovement : MonoBehaviour
     [Tooltip("Forward: Up or Right, Backwards: Down or Left")]
     [SerializeField] private FlameDirection direction = FlameDirection.Forward;
     [SerializeField] private float distance = 10f;
+    [SerializeField] private GameObject ember = null;
 
     private Rigidbody2D flameRB;
     private Vector3 initialPosition;
@@ -22,6 +24,7 @@ public class FlameMovement : MonoBehaviour
     private Vector3 destination;
     private SpriteRenderer flameSPR;
     private CircleCollider2D flameCol;
+    private Light2D flameLight;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class FlameMovement : MonoBehaviour
         destination = DestinationVector();
         flameSPR = GetComponent<SpriteRenderer>();
         flameCol = GetComponent<CircleCollider2D>();
+        flameLight = GetComponent<Light2D>();
     }
 
     // Update is called once per frame
@@ -89,11 +93,15 @@ public class FlameMovement : MonoBehaviour
     {
         flameSPR.enabled = true;
         flameCol.enabled = true;
+        flameLight.enabled = true;
+        ember.SetActive(true);
     }
 
     void disableFlame()
     {
         flameSPR.enabled = false;
         flameCol.enabled = false;
+        flameLight.enabled = false;
+        ember.SetActive(false);
     }
 }

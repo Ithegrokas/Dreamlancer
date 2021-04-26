@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: -4619783068965446977
     second: SPR_MovingPlatformD_1
+  - first:
+      213: 3086865588351499370
+    second: SPR_MovingPlatformD_0
+  - first:
+      213: 6956902459563101833
+    second: SPR_MovingPlatformD_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -111,15 +117,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29074949e9e651f40800000000000000
-      internalID: 5698582530883874962
+      spriteID: a6c711fc5efb6da20800000000000000
+      internalID: 3086865588351499370
       vertices: []
       indices: 
       edges: []
@@ -132,15 +138,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fba53f286cb33efb0800000000000000
-      internalID: -4619783068965446977
+      spriteID: 98ecc4f7de1eb8060800000000000000
+      internalID: 6956902459563101833
       vertices: []
       indices: 
       edges: []
