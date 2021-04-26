@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1274938014480026583}
   - component: {fileID: -8289928442969434740}
   - component: {fileID: 5360999712037619000}
-  - component: {fileID: 1045609382725410218}
   m_Layer: 0
   m_Name: BoxKey
   m_TagString: Key
@@ -122,36 +121,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.8, y: 0.8}
   m_Direction: 1
---- !u!114 &1045609382725410218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274938014480026582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 000000007398a821
-  m_ShapePath:
-  - {x: -0.40623087, y: -0.5, z: 0}
-  - {x: 0.41026422, y: -0.5, z: 0}
-  - {x: 0.49642357, y: -0.4165005, z: 0}
-  - {x: 0.49918795, y: 0.4187954, z: 0}
-  - {x: 0.4063714, y: 0.49828857, z: 0}
-  - {x: -0.40170148, y: 0.5018724, z: 0}
-  - {x: -0.49683625, y: 0.4090435, z: 0}
-  - {x: -0.5007195, y: -0.40852508, z: 0}
-  m_ShapePathHash: -756745525
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 129666
 --- !u!1001 &5503524797660968285
 PrefabInstance:
   m_ObjectHideFlags: 0
