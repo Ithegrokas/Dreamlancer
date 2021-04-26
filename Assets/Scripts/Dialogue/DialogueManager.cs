@@ -10,10 +10,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text nameText = null;
     [SerializeField] private TMP_Text dialogueText = null;
     [SerializeField] private GameObject pressSpace = null;
-    [SerializeField] private float waitForText = 2f;
     private Queue<DialogueSegment> segments;
     private GameObject dialogue_box;
     private PlayerController playerController;
+    private bool textIsWritten = false;
     
     // Start is called before the first frame update
     void Start()
@@ -59,12 +59,11 @@ public class DialogueManager : MonoBehaviour
         
         typeSentenceRoutine =  StartCoroutine(TypeSentence(segment.dialogueText));
 
-        yield return new WaitForSeconds(waitForText);
+        yield return WaitForText();
 
         pressSpace.SetActive(true);
         while(!Input.GetKeyDown(KeyCode.Space))
             yield return null;
-
 
         StartCoroutine(DisplayNextSentence());
         
@@ -83,13 +82,22 @@ public class DialogueManager : MonoBehaviour
         playerController.enableInput();
     }
 
+    IEnumerator WaitForText()
+    {
+        while(!textIsWritten)
+            yield return null;
+    }
+
     IEnumerator TypeSentence(string sentence)
     {
+        textIsWritten = false;
         dialogueText.text = "";
+
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
             yield return null;
         }
+        textIsWritten = true;
     }
 }
