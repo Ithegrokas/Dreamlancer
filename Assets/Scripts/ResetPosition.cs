@@ -16,4 +16,6 @@ public class ResetPosition : MonoBehaviour
     {
         checkpointPosition = newCheckpoint;
     }
+
+    public Vector3 getCheckpoint() => checkpointPosition;
 }

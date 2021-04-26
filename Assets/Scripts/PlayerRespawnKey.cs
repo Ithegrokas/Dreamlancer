@@ -5,19 +5,18 @@ using UnityEngine;
 public class PlayerRespawnKey : MonoBehaviour
 {
 
-    private Transform boxKey;
-    private Vector3 boxKeySpawn;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform boxKey = null;
+    private ResetPosition playerCheckpoint;
+
+    void Start() 
     {
-        boxKey = GameObject.FindGameObjectWithTag("Key").transform;
-        boxKeySpawn = boxKey.position;
+        playerCheckpoint = GetComponent<ResetPosition>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-            boxKey.position = boxKeySpawn;
+            boxKey.position = playerCheckpoint.getCheckpoint();
     }
 }
