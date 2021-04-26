@@ -40,7 +40,8 @@ public class PlayerCinematic : MonoBehaviour
                 col.enabled = true;
         }
 
-        GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+        GetComponent<Animator>().SetBool("cinematicEnded", true);
+        //GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
         
     }
 
