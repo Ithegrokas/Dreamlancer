@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1300b2e51ba448b46bd876ba1db37caa, type: 3}
+  m_Name: EndLevel_3
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - dialogueName: Miss Margarita
+    dialogueText: Could you please stay with me for a while? At least while I read
+      it?
+  - dialogueName: The Dreamlancer
+    dialogueText: Well, of course, Miss Margarita, wouldn't have it any other way.
+      Do you know who wrote you that letter?
+  - dialogueName: Miss Margarita
+    dialogueText: "Yeah, it\u2019s from my son, Tom\xE1s, he's such a good man. Always
+      working hard. It must have been so difficult for him. He\u2019s so nice you
+      know? He always comes and worries about me."
+  - dialogueName: The Dreamlancer
+    dialogueText: Of course, and yeah, this kind of expeditions are not cheap.
+  - dialogueName: Miss Margarita
+    dialogueText: "It\u2019s not only the money. With us not being able to talk.
+      To think that he would go to such lengths only to speak with me."
+  - dialogueName: The Dreamlancer
+    dialogueText: " I thought you said that you didn\u2019t get visits these days."
+  - dialogueName: Miss Margarita
+    dialogueText: ' I think he visits me. Sometimes I can feel his love, I can feel
+      his heart being with mine. We cannot communicate, but I think I can feel his
+      presence.'
+  - dialogueName: Miss Margarita
+    dialogueText: "You see, young man, I\u2019ve been in a coma for the last 20 years.
+      And I know, we know (My son and me), that my time draws near."
+  - dialogueName: Miss Margarita
+    dialogueText: ' I thought that I would die all alone here, with all my munchkins,
+      who have gone to such great lengths to protect me and comfort me all these
+      years.'
+  - dialogueName: Miss Margarita
+    dialogueText: 'But now, I am sure that I have not been fogotten. I can feel at
+      peace. '
+  - dialogueName: Miss Margarita
+    dialogueText: "Thank you very very much Mr Dreamlancre.  I\u2019m sure you have
+      many things to do today, you can go now if you want."
+  - dialogueName: The Dreamlancer
+    dialogueText: "If you don\u2019t mind Miss Margarita, I would like to stay with
+      you some more."
+  - dialogueName: Miss Margarita
+    dialogueText: "Oh, I wouldn\u2019t mind at all"
