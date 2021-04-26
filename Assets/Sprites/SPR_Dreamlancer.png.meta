@@ -59,6 +59,15 @@ TextureImporter:
   - first:
       213: 1824537229876702588
     second: SPR_Dreamlancer_10
+  - first:
+      213: -6260856232814502919
+    second: SPR_Dreamlancer_8
+  - first:
+      213: -1621091207117417158
+    second: SPR_Dreamlancer_9
+  - first:
+      213: 224621859083865893
+    second: SPR_Dreamlancer_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -162,7 +171,7 @@ TextureImporter:
         y: 64
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -183,7 +192,7 @@ TextureImporter:
         y: 64
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -204,7 +213,7 @@ TextureImporter:
         y: 64
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -225,7 +234,7 @@ TextureImporter:
         y: 64
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -246,7 +255,7 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -267,7 +276,7 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -288,7 +297,7 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -309,7 +318,7 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -330,15 +339,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e43ae04fcc1b5120800000000000000
-      internalID: 2403546502605190371
+      spriteID: 9fb1d4d7d68fc19a0800000000000000
+      internalID: -6260856232814502919
       vertices: []
       indices: 
       edges: []
@@ -347,19 +356,19 @@ TextureImporter:
       name: SPR_Dreamlancer_9
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0140b1bfcbe853e00800000000000000
-      internalID: 1023881432614503440
+      spriteID: a35d143d22ab089e0800000000000000
+      internalID: -1621091207117417158
       vertices: []
       indices: 
       edges: []
@@ -372,15 +381,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7da64a91fe025910800000000000000
-      internalID: 1824537229876702588
+      spriteID: 52f4b7704640e1300800000000000000
+      internalID: 224621859083865893
       vertices: []
       indices: 
       edges: []

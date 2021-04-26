@@ -70,4 +70,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ef41aab8782054c878104fe5170a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 552eacc6701072e448674420b164e3c7, type: 2}
+  dialogue: {fileID: 0}

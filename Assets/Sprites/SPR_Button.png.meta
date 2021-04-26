@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -1466272112454389351
     second: SPR_Button_2
+  - first:
+      213: -4889280875529918430
+    second: SPR_Button_0
+  - first:
+      213: 5376249059096697716
+    second: SPR_Button_1
+  - first:
+      213: 298250379761882702
+    second: SPR_Button_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -114,15 +123,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e8db1bdf9d2cd570800000000000000
-      internalID: 8492713161912998114
+      spriteID: 228adeeb2f8c52cb0800000000000000
+      internalID: -4889280875529918430
       vertices: []
       indices: 
       edges: []
@@ -135,15 +144,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c915ed7b3361f8580800000000000000
-      internalID: -8822808733611568740
+      spriteID: 47b9c7fd8064c9a40800000000000000
+      internalID: 5376249059096697716
       vertices: []
       indices: 
       edges: []
@@ -156,15 +165,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99138194841c6abe0800000000000000
-      internalID: -1466272112454389351
+      spriteID: e4615d3e329932400800000000000000
+      internalID: 298250379761882702
       vertices: []
       indices: 
       edges: []

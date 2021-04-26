@@ -25,14 +25,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        movement = Vector2.zero;
         if (inputEnabled)
         {
-            movement = Vector2.zero;
             movement.y = Input.GetAxis("Vertical");
             movement.x = Input.GetAxis("Horizontal");
-
-            playerAnim.SetFloat("horizontalSpeed", Mathf.Abs(movement.x));
-            playerAnim.SetFloat("verticalSpeed", movement.y);
 
             playerRB.velocity = movement * speed;
 
@@ -42,15 +39,22 @@ public class PlayerController : MonoBehaviour
             else if (movement.x > 0 && !playerSPR.flipX)
                 playerSPR.flipX = true;
         }
+        else 
+        {   
+            playerRB.velocity = Vector2.zero;
+        }
+        playerAnim.SetFloat("horizontalSpeed", Mathf.Abs(movement.x));
+        playerAnim.SetFloat("verticalSpeed", movement.y);
 
     }
 
     public void enableInput() => inputEnabled = true;
 
+    public void disableInput() => inputEnabled = false;
+
     public IEnumerator Death() 
     {
         inputEnabled = false;
-        playerRB.velocity = Vector2.zero;
         onDeathVfx.SetActive(true);
         yield return new WaitForSeconds(2f);
         playerReset.resetPosition();
