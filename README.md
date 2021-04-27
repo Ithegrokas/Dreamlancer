@@ -1,14 +1,14 @@
-#Dreamlancer
+# Dreamlancer 🚀
 
-The Dreamlancer is a Dungeon Crawler in which you will be playing as the recently gone independent oneironaut mage. He travels consciously to the dream realm using his magic powers to help people have good dreams, battle their inner demons, send messages, and even give some slight counseling. The following is a day in his life.
+_The Dreamlancer is a Dungeon Crawler in which you will be playing as the recently gone independent oneironaut mage. He travels consciously to the dream realm using his magic powers to help people have good dreams, battle their inner demons, send messages, and even give some slight counseling. The following is a day in his life._
 
-This game was made in 72h for the CAS game jam for the month of april with the theme: Dreams 
+_This game was made in 72h for the CAS game jam for the month of april with the theme: Dreams_
 
-Controls:
+## Controls:
 
-WASD to move.
+_WASD to move._
 
-R to reset the position of the KeyBox
+_R to reset the position of the KeyBox_
 
 It was made by a team of 3 consisting of:
 
