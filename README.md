@@ -10,12 +10,12 @@ _WASD to move._
 
 _R to reset the position of the KeyBox_
 
-It was made by a team of 3 consisting of:
+### It was made by a team of 3 consisting of:
 
-* Art by: @Kasawayu_ [itch.io](https://kasawayu.itch.io/)
-* Programmer: @Ithras_ [itch.io](https://ithras.itch.io/) [github](https://github.com/ithras)
-* Programmer: @Egroj97_ [itch.io](https://egroj97.itch.io/) [github](https://github.com/egroj97)
+* Art by: **@Kasawayu** [itch.io](https://kasawayu.itch.io/)
+* Programmer: **@Ithras** [itch.io](https://ithras.itch.io/) [github](https://github.com/ithras)
+* Programmer: **@Egroj97** [itch.io](https://egroj97.itch.io/) [github](https://github.com/egroj97)
 
-_Music: Ludum Dare 38 - Track 2 by Abstraction (http://www.abstractionmusic.com/)_
+🍺_Music: Ludum Dare 38 - Track 2 by Abstraction (http://www.abstractionmusic.com/)_🍺
 
 _We hope you enjoy this little adventure we crafted from scratch_
