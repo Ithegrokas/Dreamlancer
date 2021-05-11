@@ -28,8 +28,11 @@ public class UnlockSystem : MonoBehaviour
             if(obj.transform.parent == transform.parent)
                 doorObj = obj;
 
-        doorAnim = doorObj.GetComponent<Animator>();
-        doorCol = doorObj.GetComponent<BoxCollider2D>();
+        if(doorObj != null)
+        {
+            doorAnim = doorObj.GetComponent<Animator>();
+            doorCol = doorObj.GetComponent<BoxCollider2D>();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -44,8 +47,12 @@ public class UnlockSystem : MonoBehaviour
             flameLights.ForEach( light => light.color = roomColor);
             //add flame embers
 
-            doorAnim.SetBool("Unlock", true);
-            doorCol.enabled = false;
+            if(doorObj != null)
+            {
+                doorAnim.SetBool("Unlock", true);
+                doorCol.enabled = false;
+            }
+            
         }
     }
 
