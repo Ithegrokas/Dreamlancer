@@ -10,8 +10,15 @@ public class OldLadyTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if(col.CompareTag("Key")){
             oldLady.gameObject.SetActive(true);
-            boxKey.SetBool("asd",true);
+            boxKey.SetBool("boxFade",true);
         }
+        boxKey.gameObject.AddComponent<LobbyBox>();
+        StartCoroutine(disableBox());
+    }
 
+    IEnumerator disableBox()
+    {
+        yield return new WaitForSeconds(2);
+        boxKey.gameObject.SetActive(false);
     }
 }
