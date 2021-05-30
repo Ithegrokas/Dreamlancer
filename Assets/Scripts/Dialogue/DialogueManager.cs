@@ -12,8 +12,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject pressSpace = null;
     [SerializeField] private RectTransform dialogueBox = null;
     private Queue<DialogueSegment> segments;
-    private Vector2 dialogueBoxDown = new Vector2(0f, 156f);
-    private Vector2 dialogueBoxUp = new Vector2(0f, 612f);
+    private Vector2 dialogueBoxDown = Vector2.zero;
+    private Vector2 dialogueBoxUp = Vector2.zero;
     private PlayerController playerController;
     private bool textIsWritten = false;
     private Camera main;
@@ -25,6 +25,8 @@ public class DialogueManager : MonoBehaviour
         DialogueTrigger.dialogueEvent += StartDialogueEventHandler;
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         main = Camera.main;
+        dialogueBoxDown.y = Screen.height / 4.923f;
+        dialogueBoxUp.y = Screen.height / 1.255f;
     }
 
     void StartDialogueEventHandler(object sender, DialogueObject dialogue)
